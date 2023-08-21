@@ -1,0 +1,25 @@
+{
+  "name": "100freelancers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devlarabar/100freelancers.git"
+  },
+  "keywords": [
+    "freelance",
+    "software engineer",
+    "web developer",
+    "100devs"
+  ],
+  "author": "Lara Alexander",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devlarabar/100freelancers/issues"
+  },
+  "homepage": "https://github.com/devlarabar/100freelancers#readme"
+}
