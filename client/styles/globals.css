@@ -38,3 +38,9 @@ h2 {
 .pointer:hover {
 	cursor: pointer;
 }
+
+/* Client Card */
+
+.client-card {
+	@apply bg-slate-100 dark:bg-slate-700 rounded-xl p-5;
+}
