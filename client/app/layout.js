@@ -14,15 +14,15 @@ export const metadata = {
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <Provider>
+            <Provider>
+                <body className={inter.className}>
                     <Header />
-                    <main className="app">
+                    <main>
                         {children}
                     </main>
                     <Footer />
-                </Provider>
-            </body>
+                </body>
+            </Provider>
         </html>
     )
 }
