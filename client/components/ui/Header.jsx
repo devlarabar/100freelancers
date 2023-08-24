@@ -4,10 +4,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
-import Provider from '../Provider'
+import { redirect } from 'next/navigation'
 
 const Header = () => {
     const { data: session } = useSession()
+    const [homeLink, setHomeLink] = useState('/')
 
     const [providers, setProviders] = useState(null)
     const [toggleDropdown, setToggleDropdown] = useState(false)
@@ -20,11 +21,16 @@ const Header = () => {
         setupProviders()
     }, [])
 
-    const signOut = (event) => { }
+    useEffect(() => {
+        if (session?.user) {
+            setHomeLink('/home')
+        }
+    }, [session])
+
     return (
         <header class="navbar bg-base-100">
             <div class="flex-1">
-                <a class="btn btn-ghost normal-case text-xl">100freelancers</a>
+                <Link href={homeLink} class="btn btn-ghost normal-case text-xl">100freelancers</Link>
             </div>
             <div class="flex-none gap-2">
                 <div class="form-control">
@@ -44,13 +50,16 @@ const Header = () => {
                         </label>
                         <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                             <li>
-                                <a class="justify-between">
+                                <Link href={'/profile'} class="justify-between">
                                     Profile
                                     <span class="badge">New</span>
-                                </a>
+                                </Link>
                             </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            <li><Link href={'/settings'}>Settings</Link></li>
+                            <li><span className="pointer" onClick={() => {
+                                signOut()
+                                redirect('/')
+                            }}>Logout</span></li>
                         </ul>
                     </div>
 

@@ -27,3 +27,14 @@ body {
 	min-height: 100vh;
 }
 
+.content {
+	@apply flex flex-col gap-5 px-10 md:px-20;
+}
+
+h2 {
+	@apply mt-5 mb-3 text-2xl font-extrabold leading-[1.15] text-black sm:text-3xl;
+}
+
+.pointer:hover {
+	cursor: pointer;
+}
