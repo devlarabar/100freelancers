@@ -10,11 +10,11 @@ const ClientSchema = new Schema({
         type: String,
         required: [true, 'Business type is required!'],
     },
-    email: {
+    address: {
         type: String,
         required: false
     },
-    address: {
+    email: {
         type: String,
         required: false
     },
