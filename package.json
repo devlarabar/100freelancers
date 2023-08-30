@@ -1,0 +1,20 @@
+{
+  "name": "100freelancers",
+  "version": "1.0.0",
+  "description": "100 Freelancers is a tool to keep track of potential web development freelance clients.",
+  "main": "index.js",
+  "scripts": {
+    "dev-concurrent": "concurrently \"npm:dev\" \"npm:serve\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devlarabar/100freelancers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devlarabar/100freelancers/issues"
+  },
+  "homepage": "https://github.com/devlarabar/100freelancers#readme"
+}

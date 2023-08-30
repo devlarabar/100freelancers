@@ -1,1 +1,3 @@
 notes/
+.env
+node_modules

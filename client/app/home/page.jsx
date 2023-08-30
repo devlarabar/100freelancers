@@ -1,10 +1,9 @@
 "use client"
 
-import Link from 'next/link'
-import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import Spinner from '@components/ui/Spinner'
 import ClientCard from '@components/client/ClientCard'
+import { useAuthContext } from 'contexts/AuthContext'
 
 const clients = [
     {
@@ -15,14 +14,15 @@ const clients = [
 ]
 
 const Home = () => {
-    const { data: session, status } = useSession()
+    const auth = useAuthContext()
 
-    if (status === 'loading') return <Spinner />
-    if (status === 'unauthenticated') return redirect('/')
+    if (!auth?.user) return <Spinner />
+    if (auth?.user === "unauthenticated") return redirect('/')
+
     return (
         <div>
             {clients.map((client, index) => {
-                <ClientCard client={client} key={index}/>
+                return <ClientCard client={client} key={index}/>
             })}
         </div>
     )
