@@ -16,7 +16,7 @@ module.exports = {
                 responseDetails,
                 clientWork
             })
-            console.log('Outreach added:', outreach)
+            console.log('Outreach added:', outreach.client.businessName, outreach.contactDetails.contactMethod)
             res.json(`Outreach has been added.`)
         } catch (err) {
             console.log(err)

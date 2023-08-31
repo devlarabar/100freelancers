@@ -17,7 +17,7 @@ module.exports = {
                 email,
                 phone
             })
-            console.log('Client added:', client)
+            console.log('Client added:', client.businessName)
             res.json(`Client "${req.body.businessName}" has been added.`)
         } catch (err) {
             console.log(err)
