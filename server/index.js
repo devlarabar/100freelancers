@@ -49,10 +49,12 @@ require('./config/passport')(passport)
 const homeRoutes = require('./routes/home')
 const authRoutes = require('./routes/auth')
 const clientRoutes = require('./routes/client')
+const outreachRoutes = require('./routes/outreach')
 
 app.use('/', homeRoutes)
 app.use('/auth', authRoutes)
 app.use('/client', clientRoutes)
+app.use('/outreach', outreachRoutes)
 
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server running on port ${PORT}`)

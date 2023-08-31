@@ -1,4 +1,11 @@
+"use client"
+
+import { useAuthContext } from 'contexts/AuthContext'
+import { redirect } from 'next/navigation'
+
 export default function Home() {
+    const auth = useAuthContext()
+    if (auth?.user) return redirect('/home')
     return (
         <main>
             <h2>Welcome to 100freelancers!</h2>

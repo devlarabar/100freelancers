@@ -2,6 +2,8 @@ const mongoose = require('mongoose')
 const { Schema, model, models } = mongoose
 
 const OutreachSchema = new Schema({
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    client: {type: Schema.Types.ObjectId, ref: 'Client'},
     contactDetails: {
         contacted: {
             type: Boolean,
@@ -30,7 +32,7 @@ const OutreachSchema = new Schema({
             required: false
         }
     },
-    client: {
+    clientWork: {
         proposalSent: Boolean,
         contractSent: Boolean,
         siteCompleted: Boolean,

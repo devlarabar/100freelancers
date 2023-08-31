@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const { Schema, model, models } = mongoose
 
 const ClientSchema = new Schema({
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
     businessName: {
         type: String,
         required: [true, 'Business name is required!'],
