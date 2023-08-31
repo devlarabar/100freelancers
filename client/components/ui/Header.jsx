@@ -30,28 +30,12 @@ const Header = ({ layoutMode, setLayoutMode }) => {
     }
 
     return (
-        <header className="navbar bg-base-100 dark:bg-slate-700 dark:text-slate-400">
+        <header className="navbar bg-slate-200 dark:bg-slate-700 dark:text-slate-400 flex-wrap">
             <div className="flex-1">
                 <Link href={homeLink} className="btn btn-ghost normal-case text-xl">100freelancers</Link>
-            </div>
-            {auth?.user && <ul className="menu menu-horizontal">
-                <li><Link href="/client/add">Client</Link></li>
-                <li><Link href="/outreach/add">Outreach</Link></li>
-            </ul>}
-            <div className="form-control flex flex-row gap-1 mr-2">
-                <input id="toggle" type="checkbox" className="toggle" checked={layoutMode === 'dark'} onChange={(e) => {
-                    if (e.target.checked) setLayoutMode('dark')
-                    else setLayoutMode('light')
-                }} />
+                
             </div>
             <div className="flex-none gap-2">
-                <div className="form-control">
-                    <input
-                        type="text"
-                        placeholder="Search"
-                        className="input input-bordered w-24 md:w-auto dark:bg-slate-500 dark:text-slate-100"
-                    />
-                </div>
                 {auth?.user ? (
                     <div className="dropdown dropdown-end">
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
@@ -71,8 +55,16 @@ const Header = ({ layoutMode, setLayoutMode }) => {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
+                            <li><Link href="/client/add">+ Client</Link></li>
+                            <li><Link href="/outreach/add">+ Outreach</Link></li>
                             <li><Link href={'/settings'}>Settings</Link></li>
                             <li><span className="pointer" onClick={logOut}>Logout</span></li>
+                            <li><div className="form-control flex flex-row gap-1 mr-2">
+                    <label className="flex items-center justify-between w-full">Dark Mode: <input id="toggle" type="checkbox" className="toggle" checked={layoutMode === 'dark'} onChange={(e) => {
+                        if (e.target.checked) setLayoutMode('dark')
+                        else setLayoutMode('emerald')
+                    }} /></label>
+                </div></li>
                         </ul>
                     </div>
 

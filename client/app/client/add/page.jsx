@@ -37,48 +37,53 @@ const AddClient = () => {
 
     return (
         <form onSubmit={(e) => addClient(e)}>
-            <label htmlFor="businessName">Business Name:</label>
-            <input
-                id="businessName"
-                type="text"
-                value={client.businessName}
-                onChange={(e) => setClient({ ...client, businessName: e.target.value })}
-                className="w-full rounded p-1"
-                required
-            />
-            <label htmlFor="businessType">Business Type:</label>
-            <input
-                id="businessType"
-                type="text"
-                value={client.businessType}
-                onChange={(e) => setClient({ ...client, businessType: e.target.value })}
-                className="w-full rounded p-1"
-                required
-            />
-            <label htmlFor="address">Address:</label>
-            <input
-                id="address"
-                type="text"
-                value={client.address}
-                onChange={(e) => setClient({ ...client, address: e.target.value })}
-                className="w-full rounded p-1"
-            />
-            <label htmlFor="email">Email:</label>
-            <input
-                id="email"
-                type="email"
-                value={client.email}
-                onChange={(e) => setClient({ ...client, email: e.target.value })}
-                className="w-full rounded p-1"
-            />
-            <label htmlFor="phone">Phone:</label>
-            <input
-                id="phone"
-                type="tel"
-                value={client.phone}
-                onChange={(e) => setClient({ ...client, phone: e.target.value })}
-                className="w-full rounded p-1"
-            />
+            <label htmlFor="businessName">Business Name:
+                <input
+                    id="businessName"
+                    type="text"
+                    value={client.businessName}
+                    onChange={(e) => setClient({ ...client, businessName: e.target.value })}
+                    className="w-full rounded p-1"
+                    required
+                />
+            </label>
+            <label htmlFor="businessType">Business Type:
+                <input
+                    id="businessType"
+                    type="text"
+                    value={client.businessType}
+                    onChange={(e) => setClient({ ...client, businessType: e.target.value })}
+                    className="w-full rounded p-1"
+                    required
+                />
+            </label>
+            <label htmlFor="address">Address:
+                <input
+                    id="address"
+                    type="text"
+                    value={client.address}
+                    onChange={(e) => setClient({ ...client, address: e.target.value })}
+                    className="w-full rounded p-1"
+                />
+            </label>
+            <label htmlFor="email">Email:
+                <input
+                    id="email"
+                    type="email"
+                    value={client.email}
+                    onChange={(e) => setClient({ ...client, email: e.target.value })}
+                    className="w-full rounded p-1"
+                />
+            </label>
+            <label htmlFor="phone">Phone:
+                <input
+                    id="phone"
+                    type="tel"
+                    value={client.phone}
+                    onChange={(e) => setClient({ ...client, phone: e.target.value })}
+                    className="w-full rounded p-1"
+                />
+            </label>
             <button type="submit" className="btn btn-primary" disabled={submitDisabled}>Add Client</button>
         </form>
     )

@@ -3,7 +3,7 @@ const Client = require('../models/Client')
 module.exports = {
     getClients: async (req, res) => {
         const userId = req.user.id
-        const clients = await Client.find({ user: userId }).sort({ createdAt: -1 }).lean()
+        const clients = await Client.find({ user: userId }).sort({ businessName: 1 }).lean()
         res.json(clients)
     },
     addClient: async (req, res) => {

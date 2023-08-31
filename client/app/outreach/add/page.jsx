@@ -41,9 +41,6 @@ const AddOutreach = () => {
             })
             const clientsJSON = await clientsData.json()
             setClients(clientsJSON)
-            if (clientsJSON.length === 1) {
-                setOutreach({ ...outreach, client: clientsJSON[0]._id })
-            }
         }
         const fetchOutreaches = async () => {
             const outreachData = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/outreach/getoutreaches`, {
@@ -103,64 +100,68 @@ const AddOutreach = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                 <span>{warn}</span>
             </div>}
-            <label htmlFor="client">Client:</label>
-            <select
-                id="client"
-                value={outreach.client}
-                onChange={(e) => {
-                    if (outreaches.some(x => x.client === e.target.value)) setWarn('You have already reached out to this client!')
-                    setOutreach({ ...outreach, client: e.target.value })
-                }
-                }
-                className="select select-bordered w-full"
-                required
-            >
-                <option disabled defaultValue>Select Client</option>
-                {clients.length > 0 && clients.map((client, index) => {
-                    return <option key={index} value={client._id}>{client.businessName} - {client.phone}</option>
-                })}
-            </select>
-            <label htmlFor="contacted">Contacted:</label>
-            <input
-                id="contacted"
-                type="checkbox"
-                value={outreach.contactDetails.contacted}
-                onChange={(e) => setOutreach({ ...outreach, contactDetails: { ...outreach.contactDetails, contacted: e.target.checked } })}
-                className="w-full rounded p-1"
-                required
-            />
-            <label htmlFor="method">Contact Method:</label>
-            <select
-                id="method"
-                value={outreach.contactDetails.contactMethod}
-                onChange={(e) => {
-                    if (e.target.value !== '') setOutreach({
-                        ...outreach, contactDetails: {
-                            ...outreach.contactDetails, contactMethod: e.target.value
-                        }
-                    })
-                }}
-                className="select select-bordered w-full"
-                required
-            >
-                <option value="">Select Method</option>
-                <option value="phone">Phone</option>
-                <option value="email">E-Mail</option>
-                <option value="in-person">In-Person</option>
-                <option value="message on website">Message on website</option>
-                <option value="social media">Social Media</option>
-                <option value="text">Text</option>
-                <option value="other">Other</option>
-            </select>
-            <label htmlFor="contactDate">Contact Date:</label>
-            <input
-                id="contactDate"
-                type="date"
-                value={outreach.contactDetails.contactDate}
-                onChange={(e) => setOutreach({ ...outreach, contactDetails: { ...outreach.contactDetails, contactDate: e.target.value } })}
-                className="w-full rounded p-1"
-                required
-            />
+            <label htmlFor="client">Client:
+                <select
+                    id="client"
+                    value={outreach.client}
+                    onChange={(e) => {
+                        if (outreaches.some(x => x.client === e.target.value)) setWarn('You have already reached out to this client!')
+                        else setWarn('')
+                        if (e.target.value !== '') setOutreach({ ...outreach, client: e.target.value })
+                    }}
+                    className="select select-bordered w-full"
+                    required
+                >
+                    <option value="">Select Client</option>
+                    {clients.length > 0 && clients.map((client, index) => {
+                        return <option key={index} value={client._id}>{client.businessName} - {client.phone}</option>
+                    })}
+                </select>
+            </label>
+            <label htmlFor="contacted" className="flex gap-5">Contacted:
+                <input
+                    id="contacted"
+                    type="checkbox"
+                    value={outreach.contactDetails.contacted}
+                    onChange={(e) => setOutreach({ ...outreach, contactDetails: { ...outreach.contactDetails, contacted: e.target.checked } })}
+                    className="checkbox"
+                    required
+                />
+            </label>
+            <label htmlFor="method">Contact Method:
+                <select
+                    id="method"
+                    value={outreach.contactDetails.contactMethod}
+                    onChange={(e) => {
+                        if (e.target.value !== '') setOutreach({
+                            ...outreach, contactDetails: {
+                                ...outreach.contactDetails, contactMethod: e.target.value
+                            }
+                        })
+                    }}
+                    className="select select-bordered w-full"
+                    required
+                >
+                    <option value="">Select Method</option>
+                    <option value="phone">Phone</option>
+                    <option value="email">E-Mail</option>
+                    <option value="in-person">In-Person</option>
+                    <option value="message on website">Message on website</option>
+                    <option value="social media">Social Media</option>
+                    <option value="text">Text</option>
+                    <option value="other">Other</option>
+                </select>
+            </label>
+            <label htmlFor="contactDate">Contact Date:
+                <input
+                    id="contactDate"
+                    type="date"
+                    value={outreach.contactDetails.contactDate}
+                    onChange={(e) => setOutreach({ ...outreach, contactDetails: { ...outreach.contactDetails, contactDate: e.target.value } })}
+                    className="w-full rounded p-1"
+                    required
+                />
+            </label>
             <button type="submit" className="btn btn-primary" disabled={submitDisabled}>Add Outreach</button>
         </form>
     )

@@ -26,7 +26,7 @@ const RootLayout = ({ children }) => {
     }, [layoutMode])
 
     return (
-        <html lang="en" className={layoutMode}>
+        <html lang="en" data-theme={layoutMode} className={layoutMode}>
             <body className={inter.className}>
                 <AuthProvider>
                     <Header layoutMode={layoutMode} setLayoutMode={setLayoutMode} />
