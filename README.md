@@ -24,6 +24,12 @@ The project is structured using MVC architecture. The wireframe below outlines t
 
 ![wireframe](https://github.com/devlarabar/100freelancers/assets/122644200/92bf2cc5-9fc8-4eae-ac5e-554af491a4ad)
 
+# Progress
+
+Currently, the project has functional authentication and session storage through Passport, as well as functional adding of clients and outreach. There is also support for light/dark mode using DaisyUI. See below for screenshots!
+
+<img src="https://github.com/devlarabar/100freelancers/assets/122644200/1698dd2e-8057-44f3-9f1a-bcbe81fedd51" width="48%">
+<img src="https://github.com/devlarabar/100freelancers/assets/122644200/d1f9c8a9-5adf-4b91-99c0-8aacef2a3cf0" width="48%">
 
 # :memo: Contributing
 
