@@ -19,7 +19,7 @@ module.exports = {
         })
     },
     getUser: (req, res) => {
-        console.log('User:', req.user.username || null)
+        console.log('User:', req.user?.username || null)
         res.send(req.user)
     },
 }

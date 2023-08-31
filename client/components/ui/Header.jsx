@@ -11,7 +11,6 @@ const Header = ({ layoutMode, setLayoutMode }) => {
     const [homeLink, setHomeLink] = useState('/')
     const [doRedirect, setDoRedirect] = useState(false)
 
-
     useEffect(() => {
         if (auth?.user) {
             setHomeLink('/home')

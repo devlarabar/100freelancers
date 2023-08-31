@@ -29,7 +29,7 @@ body {
 }
 
 h2 {
-	@apply mt-5 mb-3 text-2xl font-extrabold leading-[1.15] text-black sm:text-3xl;
+	@apply mt-5 mb-3 text-2xl font-extrabold leading-[1.15] sm:text-3xl;
 }
 
 .pointer:hover {
