@@ -9,14 +9,18 @@ module.exports = function (passport) {
 
     passport.deserializeUser(async (id, cb) => {
         console.log('Deserializing user...')
-        const user = await User.findOne({ _id: id })
-        const userInformation = {
-            username: user.username,
-            id: user._id,
-            admin: user.admin,
-            avatar: `https://cdn.discordapp.com/avatars/${user.discordId}/${user.avatar}.png`
+        try{
+            const user = await User.findOne({ _id: id }).exec()
+            const userInformation = {
+                username: user.username,
+                id: user._id,
+                admin: user.admin,
+                avatar: `https://cdn.discordapp.com/avatars/${user.discordId}/${user.avatar}.png`
+            }
+            cb(null, userInformation)
+        } catch (err) {
+            cb(err)
         }
-        cb(null, userInformation)
     })
 
     passport.use(
