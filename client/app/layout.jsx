@@ -29,7 +29,7 @@ const RootLayout = ({ children }) => {
         <html lang="en">
             <body className={inter.className}>
                 <AuthProvider>
-                    <Header layoutMode={layoutMode} setLayoutMode={setLayoutMode} />
+                    <Header />
                     <main className="content">
                         {children}
                     </main>
