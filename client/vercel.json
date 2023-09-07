@@ -1,3 +1,8 @@
 {
-    
+    "rewrites": [
+        {
+            "source": "/server/:path*",
+			"destination": "https://100freelancers-backend.vercel.app/server/:path*"
+        }
+      ]
 }
