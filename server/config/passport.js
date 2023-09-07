@@ -2,8 +2,8 @@ const DiscordStrategy = require('passport-discord').Strategy
 const User = require('../models/User')
 
 module.exports = function (passport) {
-    console.log('Serializing user...')
     passport.serializeUser((user, done) => {
+        console.log('Serializing user:', user)
         done(null, user.id)
     })
 
