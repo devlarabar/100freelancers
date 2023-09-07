@@ -30,14 +30,31 @@ app.use(
 // ***************************** 
 // Sessions (MongoDB)
 
-app.use(
-    session({
-        secret: process.env.SESSION_SECRET || 'supercalafragalisticexpialadocious',
-        resave: false,
-        saveUninitialized: false,
-        store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    })
-)
+if (process.env.NODE_ENV === 'local') {
+    app.use(
+        session({
+            secret: process.env.SESSION_SECRET || 'keyboard cat',
+            resave: false,
+            saveUninitialized: false,
+            store: new MongoStore({ mongooseConnection: mongoose.connection })
+        })
+    )
+} else {
+    app.use(
+        session({
+            secret: process.env.SESSION_SECRET || 'keyboard cat',
+            resave: false,
+            saveUninitialized: false,
+            store: new MongoStore({ mongooseConnection: mongoose.connection }),
+            cookie: {
+                secure: true, // Set to true if you're using HTTPS
+                httpOnly: true,
+                maxAge: 1000 * 60 * 60 * 24, // 1 day
+                sameSite: "none",
+            }
+        })
+    )
+}
 app.use(cookieParser('8675309'))
 app.use(passport.initialize())
 app.use(passport.session())
