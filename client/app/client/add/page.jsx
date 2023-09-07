@@ -20,7 +20,7 @@ const AddClient = () => {
     const addClient = async (e) => {
         e.preventDefault()
         setSubmitDisabled(true)
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/client/add`, {
+        const response = await fetch(`/api/client/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

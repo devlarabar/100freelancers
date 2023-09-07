@@ -7,7 +7,7 @@ const useProvideAuth = () => {
 
     useEffect(() => {
         const fetchCurrentUser = async () => {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/getUser`, {
+            const response = await fetch(`/api/auth/getUser`, {
                 method: 'GET',
                 credentials: 'include'
             })
@@ -28,7 +28,7 @@ const useProvideAuth = () => {
 
     const logout = async () => {
         console.log('Logging out...')
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
+        const response = await fetch(`/api/auth/logout`, {
             method: 'POST',
             credentials: 'include'
         })
