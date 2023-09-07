@@ -35,7 +35,7 @@ const AddOutreach = () => {
 
     useEffect(() => {
         const fetchClients = async () => {
-            const clientsData = await fetch(`/api/client/getclients`, {
+            const clientsData = await fetch(`/server/client/getclients`, {
                 method: 'GET',
                 credentials: 'include'
             })
@@ -43,7 +43,7 @@ const AddOutreach = () => {
             setClients(clientsJSON)
         }
         const fetchOutreaches = async () => {
-            const outreachData = await fetch(`/api/outreach/getoutreaches`, {
+            const outreachData = await fetch(`/server/outreach/getoutreaches`, {
                 method: 'GET',
                 credentials: 'include'
             })
@@ -74,7 +74,7 @@ const AddOutreach = () => {
         e.preventDefault()
         if (!validationError()) {
             setSubmitDisabled(true)
-            const response = await fetch(`/api/outreach/add`, {
+            const response = await fetch(`/server/outreach/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

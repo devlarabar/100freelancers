@@ -20,7 +20,7 @@ const AddClient = () => {
     const addClient = async (e) => {
         e.preventDefault()
         setSubmitDisabled(true)
-        const response = await fetch(`/api/client/add`, {
+        const response = await fetch(`/server/client/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
