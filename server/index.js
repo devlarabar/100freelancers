@@ -11,7 +11,7 @@ const bodyParser = require('body-parser')
 require('dotenv').config({ path: './config/.env' })
 const PORT = 4000
 
-connectDB()
+
 
 // ***************************** 
 // Middleware
@@ -73,6 +73,8 @@ app.use('/auth', authRoutes)
 app.use('/client', clientRoutes)
 app.use('/outreach', outreachRoutes)
 
-app.listen(process.env.PORT || PORT, () => {
-    console.log(`Server running on port ${PORT}`)
+connectDB().then(() => {
+    app.listen(process.env.PORT || PORT, () => {
+        console.log(`Server running on port ${PORT}`)
+    })
 })
