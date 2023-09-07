@@ -1,11 +1,11 @@
-"use client"
+
 
 import '@styles/globals.css'
 import { Inter } from 'next/font/google'
 import Header from '@components/ui/Header'
 import Footer from '@components/ui/Footer'
 import AuthProvider from '@contexts/AuthContext'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,18 +15,18 @@ export const metadata = {
 }
 
 const RootLayout = ({ children }) => {
-    const [layoutMode, setLayoutMode] = useState('dark')
+    // const [layoutMode, setLayoutMode] = useState('dark')
 
-    useEffect(() => {
-        setLayoutMode(localStorage.getItem('layoutMode') || 'light')
-    }, [])
+    // useEffect(() => {
+    //     setLayoutMode(localStorage.getItem('layoutMode') || 'light')
+    // }, [])
 
-    useEffect(() => {
-        localStorage.setItem('layoutMode', layoutMode)
-    }, [layoutMode])
+    // useEffect(() => {
+    //     localStorage.setItem('layoutMode', layoutMode)
+    // }, [layoutMode])
 
     return (
-        <html lang="en" data-theme={layoutMode} className={layoutMode}>
+        <html lang="en">
             <body className={inter.className}>
                 <AuthProvider>
                     <Header layoutMode={layoutMode} setLayoutMode={setLayoutMode} />
