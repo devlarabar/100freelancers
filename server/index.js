@@ -33,6 +33,7 @@ app.use(cookieParser('keyboard cat'))
 app.set('trust proxy', 1)
 
 if (process.env.NODE_ENV === 'local') {
+    console.log('Local env running')
     app.use(
         session({
             secret: process.env.SESSION_SECRET || 'keyboard cat',
@@ -42,6 +43,7 @@ if (process.env.NODE_ENV === 'local') {
         })
     )
 } else {
+    console.log('Prod env running')
     app.use(
         session({
             secret: process.env.SESSION_SECRET || 'keyboard cat',
