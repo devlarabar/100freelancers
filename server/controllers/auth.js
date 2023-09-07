@@ -19,6 +19,7 @@ module.exports = {
         })
     },
     getUser: (req, res) => {
+        console.log(req.sessionID, req.session, req)
         console.log('User:', req.user?.username || null)
         res.send(req.user)
     },
