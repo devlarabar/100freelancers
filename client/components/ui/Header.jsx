@@ -69,7 +69,7 @@ const Header = ({ layoutMode, setLayoutMode }) => {
 
                 )
                     : (<>
-                        <form action={`${process.env.NEXT_PUBLIC_API_URL}/auth/discord`}>
+                        <form action={`${process.env.NEXT_PUBLIC_API_URL}/server/auth/discord`}>
                             <button
                                 type="submit"
                                 className="btn btn-primary"
