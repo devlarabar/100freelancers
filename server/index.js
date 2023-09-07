@@ -29,7 +29,7 @@ app.use(
 
 // ***************************** 
 // Sessions (MongoDB)
-app.use(cookieParser('keyboard cat'))
+app.use(cookieParser())
 app.set('trust proxy', 1)
 
 if (process.env.NODE_ENV === 'local') {

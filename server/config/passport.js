@@ -17,6 +17,7 @@ module.exports = function (passport) {
                 admin: user.admin,
                 avatar: `https://cdn.discordapp.com/avatars/${user.discordId}/${user.avatar}.png`
             }
+            console.log(userInformation)
             cb(null, userInformation)
         } catch (err) {
             cb(err)
@@ -27,7 +28,7 @@ module.exports = function (passport) {
         new DiscordStrategy({
             clientID: process.env.DISCORD_CLIENT_ID,
             clientSecret: process.env.DISCORD_CLIENT_SECRET,
-            callbackURL: '/server/auth/discord/callback',
+            callbackURL: `${process.env.FRONTEND_URL}/auth/discord/callback`,
             scope: ['identify', 'email', 'guilds'],
             passReqToCallback: true,
         },
