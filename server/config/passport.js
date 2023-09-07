@@ -28,7 +28,7 @@ module.exports = function (passport) {
         new DiscordStrategy({
             clientID: process.env.DISCORD_CLIENT_ID,
             clientSecret: process.env.DISCORD_CLIENT_SECRET,
-            callbackURL: `${process.env.FRONTEND_URL}/auth/discord/callback`,
+            callbackURL: `/server/auth/discord/callback`,
             scope: ['identify', 'email', 'guilds'],
             passReqToCallback: true,
         },
