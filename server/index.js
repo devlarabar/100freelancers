@@ -29,6 +29,8 @@ app.use(
 
 // ***************************** 
 // Sessions (MongoDB)
+app.use(cookieParser('keyboard cat'))
+app.set('trust proxy', 1)
 
 if (process.env.NODE_ENV === 'local') {
     app.use(
@@ -55,7 +57,6 @@ if (process.env.NODE_ENV === 'local') {
         })
     )
 }
-app.use(cookieParser('8675309'))
 app.use(passport.initialize())
 app.use(passport.session())
 require('./config/passport')(passport)
