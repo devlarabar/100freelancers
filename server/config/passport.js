@@ -2,11 +2,13 @@ const DiscordStrategy = require('passport-discord').Strategy
 const User = require('../models/User')
 
 module.exports = function (passport) {
+    console.log('Serializing user...')
     passport.serializeUser((user, done) => {
         done(null, user.id)
     })
 
     passport.deserializeUser(async (id, cb) => {
+        console.log('Deserializing user...')
         const user = await User.findOne({ _id: id })
         const userInformation = {
             username: user.username,
