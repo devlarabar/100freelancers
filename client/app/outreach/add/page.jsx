@@ -50,11 +50,10 @@ const AddOutreach = () => {
             const outreachJSON = await outreachData.json()
             setOutreaches(outreachJSON)
         }
-        if (auth?.user) {
-            fetchOutreaches()
-            fetchClients()
-        }
-    }, [auth?.user])
+        
+        fetchOutreaches()
+        fetchClients()
+    }, [])
 
     useEffect(() => {
         if (clients.length === 1 && outreaches.length >= 1) setWarn('You have already reached out to this client!')
