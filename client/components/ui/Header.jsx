@@ -17,16 +17,12 @@ const Header = ({ ThemeToggle }) => {
         }
     }, [auth?.user])
 
-    useEffect(() => console.log(auth), [])
-
     const logOut = async (event) => {
         auth.logout()
         setDoRedirect(true)
     }
 
-    if (doRedirect) {
-        redirect('/')
-    }
+    if (doRedirect) redirect('/')
 
     return (
         <header className="navbar bg-slate-200 dark:bg-slate-700 dark:text-slate-400 flex-wrap">
@@ -68,11 +64,7 @@ const Header = ({ ThemeToggle }) => {
 
                 )
                     : (<>
-                        <form action={
-                            process.env.NEXT_PUBLIC_NODE_ENV === 'local'
-                                ? '/server/auth/discord'
-                                : '/server/auth/discord'
-                        }>
+                        <form action={'/server/auth/discord'}>
                             <button
                                 type="submit"
                                 className="btn btn-primary"

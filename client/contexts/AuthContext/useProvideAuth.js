@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 
 const useProvideAuth = () => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null)
 
     useEffect(() => {
         const fetchCurrentUser = async () => {
@@ -13,7 +13,6 @@ const useProvideAuth = () => {
             })
             try {
                 const userData = await response.json()
-                console.log('Current user:', userData)
                 setUser(userData)
             } catch (err) {
                 // No user

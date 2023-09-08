@@ -30,9 +30,7 @@ const ThemeToggle = () => {
 
     if (!mounted) {
         return null
-    }
-
-    return (
+    } else return (
         <>
             <label className="flex items-center justify-between w-full">Theme: <input id="toggle" type="checkbox" className="toggle" checked={theme === 'dark'} onChange={(e) => changeTheme(e)} /></label>
         </>
