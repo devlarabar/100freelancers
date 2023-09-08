@@ -64,19 +64,19 @@ app.use(passport.session())
 require('./config/passport')(passport)
 
 // Set up mock user in local environment
-if (process.env.NODE_ENV === "local") {
-    console.log("Running local environment (using Mock User)")
-    app.use(async (req, res, next) => {
-        if (process.env.MOCK_USER !== "true") return next()
-        req.user = mockUser
-        await User.findOneAndUpdate(
-            { _id: mockUser._id },
-            { $setOnInsert: mockUser },
-            { upsert: true, new: true }
-        ).exec()
-        next()
-    })
-}
+// if (process.env.NODE_ENV === "local") {
+//     console.log("Running local environment (using Mock User)")
+//     app.use(async (req, res, next) => {
+//         if (process.env.MOCK_USER !== "true") return next()
+//         req.user = mockUser
+//         await User.findOneAndUpdate(
+//             { _id: mockUser._id },
+//             { $setOnInsert: mockUser },
+//             { upsert: true, new: true }
+//         ).exec()
+//         next()
+//     })
+// }
 
 // ***************************** 
 // Routers
