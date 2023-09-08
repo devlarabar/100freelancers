@@ -20,9 +20,9 @@
 
 ## :wrench: Structure
 
-The project is structured using MVC architecture. The wireframe below outlines the project's model and layout (it has since been decided that the client and outreach information will be separated into two models). In addition to these, there will be a user model. Authentication is done through Passport's Discord strategy.
+The wireframe below outlines the project's models and general layout. Authentication is done through Passport's Discord strategy.
 
-![wireframe](https://github.com/devlarabar/100freelancers/assets/122644200/92bf2cc5-9fc8-4eae-ac5e-554af491a4ad)
+![wireframe-2023-09-08](https://github.com/devlarabar/100freelancers/assets/122644200/4a3930f4-174a-4ae3-b373-d3b7f38eca6f)
 
 # Progress
 
