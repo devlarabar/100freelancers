@@ -8,7 +8,7 @@ const connectDB = require('./config/database')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const bodyParser = require('body-parser')
-const mockUser = require("./config/mockUser.json")
+const mockUser = require('./config/mockUser.json')
 const User = require('./models/User')
 require('dotenv').config({ path: './config/.env' })
 const PORT = 4000
@@ -96,3 +96,5 @@ connectDB().then(() => {
         console.log(`Server running on port ${PORT}`)
     })
 })
+
+module.exports = app
