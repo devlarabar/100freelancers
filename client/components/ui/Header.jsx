@@ -57,7 +57,7 @@ const Header = ({ ThemeToggle }) => {
                             <li><Link href={'/settings'}>Settings</Link></li>
                             <li><span className="pointer" onClick={logOut}>Logout</span></li>
                             <li><div className="form-control flex flex-row gap-1 mr-2">
-                                <ThemeToggle />
+                                {/* <ThemeToggle /> */}
                             </div></li>
                         </ul>
                     </div>

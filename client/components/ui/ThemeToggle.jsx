@@ -18,9 +18,9 @@ const ThemeToggle = () => {
         }
     }
 
-    // useEffect(() => {
-    //     setMounted(true)
-    // }, [])
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
     useEffect(() => {
         const themePref = localStorage.getItem('brc-theme')
@@ -28,10 +28,9 @@ const ThemeToggle = () => {
         else if (themePref === 'dark') setTheme('dark')
     }, [])
 
-    // if (!mounted) {
-    //     return null
-    // } else 
-    return (
+    if (!mounted) {
+        return null
+    } else return (
         <>
             <label className="flex items-center justify-between w-full">Theme: <input id="toggle" type="checkbox" className="toggle" checked={theme === 'dark'} onChange={(e) => changeTheme(e)} /></label>
         </>
