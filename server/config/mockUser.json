@@ -3,7 +3,7 @@
     "discordId": "9999999999999999",
     "email": "test@test.com",
     "username": "testuser#1234",
-    "avatar": "",
+    "avatar": "https://cdn.discordapp.com/embed/avatars/0.png",
     "is100devs": true,
     "admin": true,
     "__v": 0

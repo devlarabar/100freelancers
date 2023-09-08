@@ -36,8 +36,7 @@ const Header = ({ ThemeToggle }) => {
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 <Image
-                                    src={auth?.user.avatar && auth?.user.avatar.includes('https://')
-                                        || "https://cdn.discordapp.com/embed/avatars/0.png"}
+                                    src={auth?.user.avatar}
                                     width={37}
                                     height={37}
                                     className="rounded-full"
