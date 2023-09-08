@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google'
 import Header from '@components/ui/Header'
 import Footer from '@components/ui/Footer'
 import AuthProvider from '@contexts/AuthContext'
-// import { useState, useEffect } from 'react'
+import ToggleThemeProvider from '@contexts/ThemeContext/useProvideTheme'
+import ThemeToggle from '@components/ui/ThemeToggle'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,26 +14,18 @@ export const metadata = {
 }
 
 const RootLayout = ({ children }) => {
-    // const [layoutMode, setLayoutMode] = useState('dark')
-
-    // useEffect(() => {
-    //     setLayoutMode(localStorage.getItem('layoutMode') || 'light')
-    // }, [])
-
-    // useEffect(() => {
-    //     localStorage.setItem('layoutMode', layoutMode)
-    // }, [layoutMode])
-
     return (
         <html lang="en">
             <body className={inter.className}>
-                <AuthProvider>
-                    <Header />
-                    <main className="content">
-                        {children}
-                    </main>
-                </AuthProvider>
-                <Footer />
+                <ToggleThemeProvider>
+                    <AuthProvider>
+                        <Header ThemeToggle={ThemeToggle} />
+                        <main className="content">
+                            {children}
+                        </main>
+                    </AuthProvider>
+                    <Footer />
+                </ToggleThemeProvider>
             </body>
         </html >
     )

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: ['class', '[data-theme="dark"]'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -17,6 +17,14 @@ module.exports = {
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["dark", "emerald"],
-  },
+		themes: [{
+			light: {
+				...require("daisyui/src/theming/themes")["[data-theme=emerald]"],
+			}
+		}, {
+			dark: {
+				...require("daisyui/src/theming/themes")["[data-theme=dark]"],
+			}
+		}],
+	},
 }

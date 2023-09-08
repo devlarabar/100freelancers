@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { redirect } from 'next/navigation'
 import { useAuthContext } from '@contexts/AuthContext'
 
-const Header = ({ layoutMode, setLayoutMode }) => {
+const Header = ({ ThemeToggle }) => {
     const auth = useAuthContext()
     const [homeLink, setHomeLink] = useState('/')
     const [doRedirect, setDoRedirect] = useState(false)
@@ -32,14 +32,16 @@ const Header = ({ layoutMode, setLayoutMode }) => {
         <header className="navbar bg-slate-200 dark:bg-slate-700 dark:text-slate-400 flex-wrap">
             <div className="flex-1">
                 <Link href={homeLink} className="btn btn-ghost normal-case text-xl">100freelancers</Link>
-                
+
             </div>
             <div className="flex-none gap-2">
                 {auth?.user ? (
                     <div className="dropdown dropdown-end">
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <Image src={auth?.user.avatar || ""}
+                                <Image
+                                    src={auth?.user.avatar && auth?.user.avatar.includes('https://')
+                                        || "https://cdn.discordapp.com/embed/avatars/0.png"}
                                     width={37}
                                     height={37}
                                     className="rounded-full"
@@ -59,21 +61,21 @@ const Header = ({ layoutMode, setLayoutMode }) => {
                             <li><Link href={'/settings'}>Settings</Link></li>
                             <li><span className="pointer" onClick={logOut}>Logout</span></li>
                             <li><div className="form-control flex flex-row gap-1 mr-2">
-                    <label className="flex items-center justify-between w-full">Dark Mode: <input id="toggle" type="checkbox" className="toggle" checked={layoutMode === 'dark'} onChange={(e) => {
-                        if (e.target.checked) setLayoutMode('dark')
-                        else setLayoutMode('emerald')
-                    }} /></label>
-                </div></li>
+                                <ThemeToggle />
+                            </div></li>
                         </ul>
                     </div>
 
                 )
                     : (<>
-                        <form action={`/server/auth/discord`}>
+                        <form action={
+                            process.env.NEXT_PUBLIC_NODE_ENV === 'local'
+                                ? '/server/auth/discord'
+                                : '/server/auth/discord'
+                        }>
                             <button
                                 type="submit"
                                 className="btn btn-primary"
-                            // onClick={logIn}
                             >
                                 Sign In
                             </button></form>

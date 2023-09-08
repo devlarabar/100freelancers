@@ -8,10 +8,10 @@ const connectDB = require('./config/database')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const bodyParser = require('body-parser')
+const mockUser = require("./config/mockUser.json")
+const User = require('./models/User')
 require('dotenv').config({ path: './config/.env' })
 const PORT = 4000
-
-
 
 // ***************************** 
 // Middleware
@@ -29,11 +29,11 @@ app.use(
 
 // ***************************** 
 // Sessions (MongoDB)
+
 app.use(cookieParser())
 app.set('trust proxy', 1)
 
 if (process.env.NODE_ENV === 'local') {
-    console.log('Local env running')
     app.use(
         session({
             secret: process.env.SESSION_SECRET || 'keyboard cat',
@@ -43,7 +43,7 @@ if (process.env.NODE_ENV === 'local') {
         })
     )
 } else {
-    console.log('Prod env running')
+    console.log('Running production environment...')
     app.use(
         session({
             secret: process.env.SESSION_SECRET || 'keyboard cat',
@@ -62,6 +62,21 @@ if (process.env.NODE_ENV === 'local') {
 app.use(passport.initialize())
 app.use(passport.session())
 require('./config/passport')(passport)
+
+// Set up mock user in local environment
+if (process.env.NODE_ENV === "local") {
+    console.log("Running local environment (using Mock User)")
+    app.use(async (req, res, next) => {
+        if (process.env.MOCK_USER !== "true") return next()
+        req.user = mockUser
+        await User.findOneAndUpdate(
+            { _id: mockUser._id },
+            { $setOnInsert: mockUser },
+            { upsert: true, new: true }
+        ).exec()
+        next()
+    })
+}
 
 // ***************************** 
 // Routers

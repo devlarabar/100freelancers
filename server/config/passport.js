@@ -9,7 +9,7 @@ module.exports = function (passport) {
 
     passport.deserializeUser(async (id, cb) => {
         console.log('Deserializing user...')
-        try{
+        try {
             const user = await User.findOne({ _id: id }).exec()
             const userInformation = {
                 username: user.username,
@@ -23,6 +23,8 @@ module.exports = function (passport) {
             cb(err)
         }
     })
+
+    if (process.env.NODE_ENV === "local") require("./passportMockUser")()
 
     passport.use(
         new DiscordStrategy({
@@ -50,6 +52,7 @@ module.exports = function (passport) {
                     } else {
                         user.username = profile.username
                         user.avatar = profile.avatar
+                        user.is100devs = is100devs
                         const updatedUser = await user.save()
                         return cb(null, updatedUser)
                     }

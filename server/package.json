@@ -39,5 +39,8 @@
     "passport": "^0.6.0",
     "passport-discord": "^0.1.4",
     "vercel": "^32.1.0"
+  },
+  "devDependencies": {
+    "nock": "^13.3.3"
   }
 }

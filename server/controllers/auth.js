@@ -1,4 +1,5 @@
 const passport = require('passport')
+const mockUser = require('../config/mockUser.json')
 
 module.exports = {
     authDiscord: passport.authenticate("discord"),
@@ -23,4 +24,8 @@ module.exports = {
         console.log('User:', req.user?.username || null)
         res.send(req.user)
     },
+    mockLogin: (req, res) => {
+        console.log('Logging in with mockUser...')
+        // Todo: add a way for users to mock login rather than immediately setting a mockUser
+    }
 }
