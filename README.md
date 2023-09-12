@@ -20,9 +20,9 @@
 
 ## :wrench: Structure
 
-The project is structured using MVC architecture. The wireframe below outlines the project's model and layout (it has since been decided that the client and outreach information will be separated into two models). In addition to these, there will be a user model. Authentication is done through Passport's Discord strategy.
+The wireframe below outlines the project's models and general layout. Authentication is done through Passport's Discord strategy.
 
-![wireframe](https://github.com/devlarabar/100freelancers/assets/122644200/92bf2cc5-9fc8-4eae-ac5e-554af491a4ad)
+![wireframe-2023-09-08](https://github.com/devlarabar/100freelancers/assets/122644200/4a3930f4-174a-4ae3-b373-d3b7f38eca6f)
 
 # Progress
 
@@ -31,6 +31,42 @@ Currently, the project has functional authentication and session storage through
 <img src="https://github.com/devlarabar/100freelancers/assets/122644200/1698dd2e-8057-44f3-9f1a-bcbe81fedd51" width="48%">
 <img src="https://github.com/devlarabar/100freelancers/assets/122644200/d1f9c8a9-5adf-4b91-99c0-8aacef2a3cf0" width="48%">
 
-# :memo: Contributing
+# :memo: Installation
 
-If you are interested in contributing to 100freelancers, please DM @cultefilm on Discord!
+This app uses [NPM](https://www.npmjs.com/) to manage its dependences and packages.
+To begin, please fork this repository and clone it to your local machine.
+
+Run the following in both the `client` and `server` directories:
+```
+npm install
+```
+
+Within the `client` and `server` directories, there is a file named `.env.example`. *Note that there is one in each directory (2 total).* Create a new file named `.env` in the same folder as the example and copy + paste everything from the example into it. **Do not delete the example!**
+
+For now, as we do not yet have a way to connect to local instances of Mongo, you will have to create a database on [MongoDB Atlas](https://cloud.mongodb.com/) for use while developing this app. Make sure you include the connection string in your newly-created `.env` file, in the `server` directory. The variable name is `DB_STRING`.
+
+To run the app locally, navigate to the `client` directory and run:
+```
+npm run dev
+```
+
+Then navigate to the `server` directory and run:
+```
+npm run serve
+```
+
+# Contributing
+
+Anyone is welcome to contribute! The following simplified example of the git workflow is what we will be following for the development of this app.
+
+- Creator: Create a new issue
+- Dev: Pick an issue, get issue assigned to them
+- Dev: Fork repo
+- Dev: Make a branch named with issue number & description
+- Dev: Make + commit changes, make a PR
+- Creator: Review PR, request changes or merge
+- Dev: Delete issue-specific branch once merged
+- Creator: Close issue
+
+
+
