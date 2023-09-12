@@ -1,6 +1,19 @@
-# 100freelancers
+<h3 align="center">100freelancers</h3>
 
-100freelancers is a tool to keep track of potential web development freelance clients.
+  <p align="center">
+    100freelancers is a tool to keep track of potential web development freelance clients.
+<!--     <br />
+    <a href="https://github.com/devlarabar/100freelancers"><strong>Explore the docs »</strong></a> -->
+    <br />
+    <br />
+    <a href="https://100freelancers.vercel.app/">View Demo</a>
+    ·
+    <a href="https://github.com/devlarabar/100freelancers/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/devlarabar/100freelancers/issues">Request Feature</a>
+  </p>
+</div>
+
 
 ## :page_with_curl: About
 
@@ -24,49 +37,55 @@ The wireframe below outlines the project's models and general layout. Authentica
 
 ![wireframe-2023-09-08](https://github.com/devlarabar/100freelancers/assets/122644200/4a3930f4-174a-4ae3-b373-d3b7f38eca6f)
 
-# Progress
+## Progress
 
 Currently, the project has functional authentication and session storage through Passport, as well as functional adding of clients and outreach. There is also support for light/dark mode using DaisyUI. See below for screenshots!
 
 <img src="https://github.com/devlarabar/100freelancers/assets/122644200/1698dd2e-8057-44f3-9f1a-bcbe81fedd51" width="48%">
 <img src="https://github.com/devlarabar/100freelancers/assets/122644200/d1f9c8a9-5adf-4b91-99c0-8aacef2a3cf0" width="48%">
 
-# :memo: Installation
+## :memo: Installation
 
 This app uses [NPM](https://www.npmjs.com/) to manage its dependences and packages.
-To begin, please fork this repository and clone it to your local machine.
+1. Fork and clone the repo
+   ```
+   git clone https://github.com/devlarabar/100freelancers.git
+   ```
 
-Run the following in both the `client` and `server` directories:
-```
-npm install
-```
+2. Run the following in both the `client` and `server` directories:
+   ```
+   npm install
+   ```
 
-Within the `client` and `server` directories, there is a file named `.env.example`. *Note that there is one in each directory (2 total).* Create a new file named `.env` in the same folder as the example and copy + paste everything from the example into it. **Do not delete the example!**
+3. Create an `.env` file in `server/config/` *and* in `client/`. Copy everything from the respective `.env.example` files in both directories into these new files. **Do not delete the example!**
 
-For now, as we do not yet have a way to connect to local instances of Mongo, you will have to create a database on [MongoDB Atlas](https://cloud.mongodb.com/) for use while developing this app. Make sure you include the connection string in your newly-created `.env` file, in the `server` directory. The variable name is `DB_STRING`.
+4. *For now*, as we do not yet have a way to connect to local instances of Mongo, you will have to create a database on [MongoDB Atlas](https://cloud.mongodb.com/) for use while developing this app. Make sure you include the connection string in your newly-created `.env` file, in the `server` directory. The variable name is `DB_STRING`.
 
-To run the app locally, navigate to the `client` directory and run:
-```
-npm run dev
-```
+5. To run the app locally, navigate to the `client` directory and run:
+   ```
+   npm run dev
+   ```
 
-Then navigate to the `server` directory and run:
-```
-npm run serve
-```
+   Then navigate to the `server` directory and run:
+   ```
+   npm run serve
+   ```
 
-# Contributing
+## Contributing
 
 Anyone is welcome to contribute! The following simplified example of the git workflow is what we will be following for the development of this app.
 
-- Creator: Create a new issue
-- Dev: Pick an issue, get issue assigned to them
-- Dev: Fork repo
-- Dev: Make a branch named with issue number & description
-- Dev: Make + commit changes, make a PR
-- Creator: Review PR, request changes or merge
-- Dev: Delete issue-specific branch once merged
-- Creator: Close issue
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+
 
 
 
