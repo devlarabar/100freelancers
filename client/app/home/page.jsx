@@ -52,7 +52,7 @@ const Home = () => {
     return (
         <div className="flex flex-wrap gap-x-[2%] gap-y-4 justify-center">
             {clients.map((client, index) => {
-                return <ClientCard client={client} key={index}/>
+                return <ClientCard client={client} key={index} />
             })}
         </div>
     )

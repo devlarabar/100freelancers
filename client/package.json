@@ -26,5 +26,9 @@
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.3",
     "vercel": "^32.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4"
   }
 }

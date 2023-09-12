@@ -25,7 +25,7 @@ const Header = ({ ThemeToggle }) => {
     if (doRedirect) redirect('/')
 
     return (
-        <header className="navbar bg-slate-200 dark:bg-slate-700 dark:text-slate-400 flex-wrap">
+        <header className="navbar bg-slate-200 first-letter:dark:bg-slate-700 dark:text-slate-400 flex-wrap">
             <div className="flex-1">
                 <Link href={homeLink} className="btn btn-ghost normal-case text-xl">100freelancers</Link>
 
