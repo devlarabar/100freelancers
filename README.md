@@ -33,4 +33,4 @@ Currently, the project has functional authentication and session storage through
 
 # :memo: Contributing
 
-If you are interested in contributing to 100freelancers, please DM @cultefilm on Discord!
+If you are interested in contributing to 100freelancers, please DM or ping @cultefilm on Discord!
