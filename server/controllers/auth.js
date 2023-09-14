@@ -5,7 +5,7 @@ module.exports = {
     authDiscord: passport.authenticate("discord"),
     authDiscordCallback: passport.authenticate("discord", {
         failureRedirect: process.env.FRONTEND_URL,
-        successRedirect: `${process.env.FRONTEND_URL}/home`
+        successRedirect: `${process.env.FRONTEND_URL}/`
     }),
     logout: (req, res, next) => {
         const username = req.user.username
