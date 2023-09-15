@@ -45,9 +45,9 @@ const clients = [
 
 const Home = () => {
     const auth = useAuthContext()
-
+    
     if (!auth?.user) return <Spinner />
-    if (auth?.isAuthenticated() === "unauthenticated") return redirect('/')
+    if (auth?.isAuthenticated() === "unauthenticated" || auth?.user === null) return redirect('/')
 
     return (
         <div className="flex flex-wrap gap-x-[2%] gap-y-4 justify-center">
