@@ -43,7 +43,7 @@ const AddClient = () => {
                     type="text"
                     value={client.businessName}
                     onChange={(e) => setClient({ ...client, businessName: e.target.value })}
-                    className="w-full rounded p-1"
+                    className="input-add"
                     required
                 />
             </label>
@@ -53,7 +53,7 @@ const AddClient = () => {
                     type="text"
                     value={client.businessType}
                     onChange={(e) => setClient({ ...client, businessType: e.target.value })}
-                    className="w-full rounded p-1"
+                    className="input-add"
                     required
                 />
             </label>
@@ -63,7 +63,7 @@ const AddClient = () => {
                     type="text"
                     value={client.address}
                     onChange={(e) => setClient({ ...client, address: e.target.value })}
-                    className="w-full rounded p-1"
+                    className="input-add"
                 />
             </label>
             <label htmlFor="email">Email:
@@ -72,7 +72,7 @@ const AddClient = () => {
                     type="email"
                     value={client.email}
                     onChange={(e) => setClient({ ...client, email: e.target.value })}
-                    className="w-full rounded p-1"
+                    className="input-add"
                 />
             </label>
             <label htmlFor="phone">Phone:
@@ -81,10 +81,10 @@ const AddClient = () => {
                     type="tel"
                     value={client.phone}
                     onChange={(e) => setClient({ ...client, phone: e.target.value })}
-                    className="w-full rounded p-1"
+                    className="input-add"
                 />
             </label>
-            <button type="submit" className="btn btn-primary" disabled={submitDisabled}>Add Client</button>
+            <button type="submit" className="button-form-submit" disabled={submitDisabled}>Add Client</button>
         </form>
     )
 }
