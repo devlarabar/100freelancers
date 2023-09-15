@@ -125,7 +125,7 @@ const AddOutreach = () => {
                     type="checkbox"
                     value={outreach.contactDetails.contacted}
                     onChange={(e) => setOutreach({ ...outreach, contactDetails: { ...outreach.contactDetails, contacted: e.target.checked } })}
-                    className="checkbox"
+                    className="checkbox bg-primary"
                     required
                 />
             </label>
