@@ -70,11 +70,22 @@ hr {
 /* Forms */
 
 form {
-	@apply w-full max-w-[500px] m-auto flex flex-col gap-5;
+	@apply w-full max-w-[500px] m-auto flex flex-col gap-5 text-secondary;
+}
+
+.button-form-submit {
+    @apply btn btn-accent bg-transparent text-accent text-lg border-4 hover:bg-accent hover:text-secondary hover:opacity-100;
 }
 
 input:not([type="checkbox"]) {
-	@apply input input-bordered w-full;
+	@apply input input-bordered w-full bg-primary;
+}
+
+.input-add {
+    @apply w-full rounded p-1;
+}
+.select {
+    @apply w-full rounded p-1 text-secondary bg-primary;
 }
 
 .navbar {
