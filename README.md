@@ -81,6 +81,16 @@ Anyone is welcome to contribute! The following simplified example of the git wor
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+
+### Color Reference
+
+| CSS Color Class | Light Theme| Dark Theme |
+| ---- | ---- | --- |
+| Primary | ![#F1F6F9](https://via.placeholder.com/10/F1F6F9?text=+) #F1F6F9 | ![#355565](https://via.placeholder.com/10/355565?text=+) #355565 |
+| Secondary | ![#142833](https://via.placeholder.com/10/142833?text=+) #142833 | ![#D7E4EB](https://via.placeholder.com/10/D7E4EB?text=+) #D7E4EB |
+| Accent | ![#0089B6](https://via.placeholder.com/10/0089B6?text=+) #0089B6 | ![#0089B6](https://via.placeholder.com/10/0089B6?text=+) #0089B6 |
+| Base-100 | ![#D7E4EB](https://via.placeholder.com/10/D7E4EB?text=+) #D7E4EB | ![#142833](https://via.placeholder.com/10/142833?text=+) #142833 |
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
