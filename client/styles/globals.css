@@ -80,3 +80,7 @@ input:not([type="checkbox"]) {
 .navbar {
     @apply flex justify-between p-4;
 }
+
+.action-icon{
+    @apply w-7 h-7 mx-1 cursor-pointer;
+}
