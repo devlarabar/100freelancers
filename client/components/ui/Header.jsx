@@ -25,12 +25,9 @@ const Header = ({ ThemeToggle }) => {
     if (doRedirect) redirect('/')
 
     return (
-        <header className="navbar bg-slate-200 first-letter:dark:bg-slate-700 dark:text-slate-400 flex-wrap">
-            <div className="flex-1">
-                <Link href={homeLink} className="btn btn-ghost normal-case text-xl">100freelancers</Link>
-
-            </div>
-            <div className="flex-none gap-2">
+        <header className="navbar">
+            <Link href={homeLink} className="btn btn-ghost normal-case text-xl"><span className="text-accent">100</span>freelancers</Link>
+            <div className="">
                 {auth?.user ? (
                     <div className="dropdown dropdown-end">
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
@@ -39,7 +36,7 @@ const Header = ({ ThemeToggle }) => {
                                     src={auth?.user.avatar}
                                     width={37}
                                     height={37}
-                                    className="rounded-full"
+                                    className="rounded-full border-4 border-accent"
                                     alt="Profile"
                                 />
                             </div>
