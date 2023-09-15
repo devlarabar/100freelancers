@@ -39,15 +39,21 @@ h2 {
 /* Client Card */
 
 .client-card {
-	@apply bg-slate-100 dark:bg-slate-600 dark:text-slate-400 rounded-xl p-5 sm:w-[48%] lg:w-[31.3%] w-full;
+	@apply bg-primary rounded-3xl p-5 h-56 w-96 text-secondary;
 }
 
 .client-contact {
-	@apply text-xs bg-slate-200 dark:bg-slate-500 p-2 rounded-md dark:text-slate-300 mt-2;
+	@apply text-xs text-secondary p-2 mt-2;
+}
+.contact-info-group{
+    @apply flex items-center mb-2;
+}
+.contact-icon {
+    @apply w-7 h-7 text-accent stroke-2;
 }
 
 h3 {
-	@apply text-lg font-bold dark:text-slate-300;
+	@apply text-xl font-bold text-secondary;
 }
 
 h4 {
@@ -58,15 +64,34 @@ h4 {
 
 hr {
 	border: none;
-	@apply bg-slate-200 dark:bg-slate-400 w-full h-[2px];
+	@apply bg-secondary w-full h-[1px];
 }
 
 /* Forms */
 
 form {
-	@apply w-full max-w-[500px] m-auto flex flex-col gap-5;
+	@apply w-full max-w-[500px] m-auto flex flex-col gap-5 text-secondary;
+}
+
+.button-form-submit {
+    @apply btn btn-accent bg-transparent text-accent text-lg border-4 hover:bg-accent hover:text-secondary hover:opacity-100;
 }
 
 input:not([type="checkbox"]) {
-	@apply input input-bordered w-full;
+	@apply input input-bordered w-full bg-primary;
+}
+
+.input-add {
+    @apply w-full rounded p-1;
+}
+.select {
+    @apply w-full rounded p-1 text-secondary bg-primary;
+}
+
+.navbar {
+    @apply flex justify-between p-4;
+}
+
+.action-icon{
+    @apply w-7 h-7 mx-1 cursor-pointer text-secondary;
 }
