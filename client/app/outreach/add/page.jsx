@@ -159,11 +159,11 @@ const AddOutreach = () => {
                     type="date"
                     value={outreach.contactDetails.contactDate}
                     onChange={(e) => setOutreach({ ...outreach, contactDetails: { ...outreach.contactDetails, contactDate: e.target.value } })}
-                    className="w-full rounded p-1"
+                    className="input-add"
                     required
                 />
             </label>
-            <button type="submit" className="btn btn-primary" disabled={submitDisabled}>Add Outreach</button>
+            <button type="submit" className="button-form-submit" disabled={submitDisabled}>Add Outreach</button>
         </form>
     )
 }
