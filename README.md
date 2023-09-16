@@ -81,6 +81,7 @@ Anyone is welcome to contribute! The following simplified example of the git wor
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+When creating your Pull Request, please make sure to be as descriptive as possible about your changes. Explain what your pull request solves if it's not resolving an existing issue.
 
 ### Color Reference
 
