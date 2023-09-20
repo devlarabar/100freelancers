@@ -1,0 +1,10 @@
+---
+services:
+  mongo:
+    image: mongo:6 
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: freelance
+      MONGO_INITDB_ROOT_PASSWORD: freelance
+      
