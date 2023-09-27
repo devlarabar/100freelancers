@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon index.js"
+    "serve": "nodemon index.js",
+    "db:up": "docker compose up -d mongo",
+    "db:stop": "docker compose stop mongo"
   },
   "repository": {
     "type": "git",
