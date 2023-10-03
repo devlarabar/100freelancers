@@ -24,43 +24,43 @@ module.exports = function (passport) {
         }
     })
 
-    if (process.env.NODE_ENV === "local") {require("./passportMockUser")()}
+    if (process.env.NODE_ENV === "local") { require("./passportMockUser")() }
     else
-    passport.use(
-        new DiscordStrategy({
-            clientID: process.env.DISCORD_CLIENT_ID,
-            clientSecret: process.env.DISCORD_CLIENT_SECRET,
-            callbackURL: `${process.env.FRONTEND_URL}/server/auth/discord/callback`,
-            scope: ['identify', 'email', 'guilds'],
-            passReqToCallback: true,
-        },
-            async function (req, accessToken, refreshToken, profile, cb) {
-                const is100devs = profile.guilds.some(server => server.id === '735923219315425401')
-                let user = await User.findOne({ discordId: profile.id }).exec()
-                try {
-                    if (!user) {
-                        console.log('Logging in...')
-                        user = await User.create({
-                            discordId: profile.id,
-                            email: profile.email,
-                            username: profile.username,
-                            avatar: profile.avatar,
-                            is100devs: is100devs,
-                            admin: false
-                        })
-                        return cb(null, user)
-                    } else {
-                        user.username = profile.username
-                        user.avatar = profile.avatar
-                        user.is100devs = is100devs
-                        const updatedUser = await user.save()
-                        return cb(null, updatedUser)
+        passport.use(
+            new DiscordStrategy({
+                clientID: process.env.DISCORD_CLIENT_ID,
+                clientSecret: process.env.DISCORD_CLIENT_SECRET,
+                callbackURL: `${process.env.FRONTEND_URL}/server/auth/discord/callback`,
+                scope: ['identify', 'email', 'guilds'],
+                passReqToCallback: true,
+            },
+                async function (req, accessToken, refreshToken, profile, cb) {
+                    const is100devs = profile.guilds.some(server => server.id === '735923219315425401')
+                    let user = await User.findOne({ discordId: profile.id }).exec()
+                    try {
+                        if (!user) {
+                            console.log('Logging in...')
+                            user = await User.create({
+                                discordId: profile.id,
+                                email: profile.email,
+                                username: profile.username,
+                                avatar: profile.avatar,
+                                is100devs: is100devs,
+                                admin: false
+                            })
+                            return cb(null, user)
+                        } else {
+                            user.username = profile.username
+                            user.avatar = profile.avatar
+                            user.is100devs = is100devs
+                            const updatedUser = await user.save()
+                            return cb(null, updatedUser)
+                        }
+                    } catch (err) {
+                        console.log(err)
+                        return cb(err, false)
                     }
-                } catch (err) {
-                    console.log(err)
-                    return cb(err, false)
                 }
-            }
+            )
         )
-    )
 }
