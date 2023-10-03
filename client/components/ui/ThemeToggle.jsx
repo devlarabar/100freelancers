@@ -20,7 +20,7 @@ const ThemeToggle = () => {
     useEffect(() => {
         const themePref = localStorage.getItem('100f-theme')
         if (themePref === 'light') setTheme('light')
-        else if (themePref === 'dark') setTheme('dark')
+        else setTheme('dark')
     }, [])
 
     return (
