@@ -163,6 +163,69 @@ const AddOutreach = () => {
                     required
                 />
             </label>
+            <label htmlFor="responded" className="flex gap-5">Responded:
+                <input
+                    id="responded"
+                    type="checkbox"
+                    value={outreach.responseDetails.responded}
+                    onChange={(e) => setOutreach({ ...outreach, responseDetails: { ...outreach.responseDetails, responded: e.target.checked}})}
+                    className="checkbox"
+                />
+            </label>
+            <label htmlFor="responseDate">Response Date:
+                <input
+                    id="responseDate"
+                    type="date"
+                    value={outreach.responseDetails.responseDate}
+                    onChange={(e) => setOutreach({...outreach, responseDetails: { ...outreach.responseDetails, responseDate: e.target.value} })}
+                    className="w-full rounded p-1"
+                />
+            </label>
+            <label htmlFor="responseYes" className="flex gap-5">Responded Yes:
+                <input
+                    id="responseYes"
+                    type="checkbox"
+                    value={outreach.responseDetails.resonseYes}
+                    onChange={(e) => setOutreach({...outreach, responseDetails: {...outreach.responseDetails, responseYes: e.target.checked} })}
+                    className="checkbox"
+                />
+            </label>
+            <label htmlFor="proposalSent" className="flex gap-5">Proposal Sent:
+                <input
+                    id="proposalSent"
+                    type="checkbox"
+                    value={outreach.clientWork.proposalSent}
+                    onChange={(e) => setOutreach({...outreach, clientWork: {...outreach.clientWork, proposalSent: e.target.checked} })}
+                    className="checkbox"
+                />
+            </label>
+            <label htmlFor="contractSent" className="flex gap-5">Contract Sent:
+                <input
+                    id="contractSent"
+                    type="checkbox"
+                    value={outreach.clientWork.contractSent}
+                    onChange={(e) => setOutreach({...outreach, clientWork: {...outreach.clientWork, contractSent: e.target.checked} })}
+                    className="checkbox"
+                />
+            </label>
+            <label htmlFor="siteCompleted" className="flex gap-5">Site Completed:
+                <input
+                    id="siteCompleted"
+                    type="checkbox"
+                    value={outreach.clientWork.siteCompleted}
+                    onChange={(e) => setOutreach({...outreach, clientWork: {...outreach.clientWork, siteCompleted: e.target.checked} })}
+                    className="checkbox"
+                />
+            </label>
+            <label htmlFor="paid" className="flex gap-5">Paid:
+                <input
+                    id="paid"
+                    type="checkbox"
+                    value={outreach.clientWork.paid}
+                    onChange={(e) => setOutreach({...outreach, clientWork: {...outreach.clientWork, paid: e.target.checked} })}
+                    className="checkbox"
+                />
+            </label>
             <button type="submit" className="btn btn-primary" disabled={submitDisabled}>Add Outreach</button>
         </form>
     )
