@@ -27,11 +27,11 @@ const Home = () => {
             <div className="flex flex-wrap gap-x-[2%] gap-y-4 justify-center">
                 {clients === null && <Spinner />}
                 {clients && clients.length > 0
-                    ? clients.map((client, index) => {
+                    && clients.map((client, index) => {
                         return <ClientCard client={client} key={index} />
                     })
-                    : <p>You have not added any clients!</p>
                 }
+                {clients && clients.length === 0 && <p>You have not added any clients!</p>}
             </div>
         </>
     )
