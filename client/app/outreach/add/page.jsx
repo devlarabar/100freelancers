@@ -126,7 +126,7 @@ const AddOutreach = () => {
                     type="checkbox"
                     value={outreach.contactDetails.contacted}
                     onChange={(e) => setOutreach({ ...outreach, contactDetails: { ...outreach.contactDetails, contacted: e.target.checked } })}
-                    className="checkbox"
+                    className="checkbox bg-primary"
                     required
                 />
             </label>
@@ -160,10 +160,11 @@ const AddOutreach = () => {
                     type="date"
                     value={outreach.contactDetails.contactDate}
                     onChange={(e) => setOutreach({ ...outreach, contactDetails: { ...outreach.contactDetails, contactDate: e.target.value } })}
-                    className="w-full rounded p-1"
+                    className="input-add"
                     required
                 />
             </label>
+<<<<<<< HEAD
             <h3>Response Information</h3>
             <label htmlFor="responded" className="flex gap-5">Responded:
                 <input
@@ -230,6 +231,9 @@ const AddOutreach = () => {
                 />
             </label>
             <button type="submit" className="btn btn-primary" disabled={submitDisabled}>Add Outreach</button>
+=======
+            <button type="submit" className="button-form-submit" disabled={submitDisabled}>Add Outreach</button>
+>>>>>>> e3c188ab179aa17cb7a8a76e95f7b34e64a9b897
         </form>
     )
 }

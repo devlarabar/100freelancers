@@ -59,7 +59,28 @@ This app uses [NPM](https://www.npmjs.com/) to manage its dependences and packag
 
 3. Create an `.env` file in `server/config/` *and* in `client/`. Copy everything from the respective `.env.example` files in both directories into these new files. **Do not delete the example!**
 
-4. *For now*, as we do not yet have a way to connect to local instances of Mongo, you will have to create a database on [MongoDB Atlas](https://cloud.mongodb.com/) for use while developing this app. Make sure you include the connection string in your newly-created `.env` file, in the `server` directory. The variable name is `DB_STRING`.
+4. We have a local MongoDB instance set up through Docker.
+   [Docker Desktop](https://www.docker.com/products/docker-desktop/) will need to be installed to run the database.
+   You can manage it using the following commands:
+   ```
+   To start the local MongoDB instance, run:
+
+   npm run db:up
+
+   To stop the local MongoDB instance, run:
+
+   npm run db:stop
+   ```
+
+   With the local MongoDB instance in place, you can now connect directly without the need for MongoDB Atlas during development.
+
+   To connect to the local MongoDB instance, follow these steps:
+
+   1. Open MongoDB Compass.
+   2. In the MongoDB Compass connection dialog, locate the "Connection String" field.
+   3. In your .env file, located in the server directory, copy the DB_STRING into the "Connection String" field
+   3. Click "Connect" to establish a connection to your local MongoDB instance.
+
 
 5. To run the app locally, navigate to the `client` directory and run:
    ```
@@ -68,6 +89,7 @@ This app uses [NPM](https://www.npmjs.com/) to manage its dependences and packag
 
    Then navigate to the `server` directory and run:
    ```
+   npm run db:up
    npm run serve
    ```
 
@@ -80,6 +102,17 @@ Anyone is welcome to contribute! The following simplified example of the git wor
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+When creating your Pull Request, please make sure to be as descriptive as possible about your changes. Explain what your pull request solves if it's not resolving an existing issue.
+
+### Color Reference
+
+| CSS Color Class | Light Theme| Dark Theme |
+| ---- | ---- | --- |
+| Primary | ![#F1F6F9](https://via.placeholder.com/10/F1F6F9?text=+) #F1F6F9 | ![#355565](https://via.placeholder.com/10/355565?text=+) #355565 |
+| Secondary | ![#142833](https://via.placeholder.com/10/142833?text=+) #142833 | ![#D7E4EB](https://via.placeholder.com/10/D7E4EB?text=+) #D7E4EB |
+| Accent | ![#0089B6](https://via.placeholder.com/10/0089B6?text=+) #0089B6 | ![#0089B6](https://via.placeholder.com/10/0089B6?text=+) #0089B6 |
+| Base-100 | ![#D7E4EB](https://via.placeholder.com/10/D7E4EB?text=+) #D7E4EB | ![#142833](https://via.placeholder.com/10/142833?text=+) #142833 |
 
 ## License
 
