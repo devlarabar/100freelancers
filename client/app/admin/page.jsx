@@ -27,7 +27,7 @@ const page = () => {
     }
 
     if (!auth?.checkAuth) return <Spinner />
-    if (auth?.isAuthenticated() === "unauthenticated") return redirect('/')
+    if (auth?.isAuthenticated === "unauthenticated") return redirect('/')
     if (auth?.user && !auth?.user.admin) return redirect('/home')
 
     return (

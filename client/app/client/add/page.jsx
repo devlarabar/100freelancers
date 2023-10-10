@@ -33,7 +33,7 @@ const AddClient = () => {
     if (doRedirect) redirect('/home')
 
     if (!auth?.checkAuth) return <Spinner />
-    if (auth?.user === "unauthenticated") return redirect('/')
+    if (auth?.isAuthenticated === "unauthenticated") return redirect('/')
 
     return (
         <form onSubmit={(e) => addClient(e)}>
