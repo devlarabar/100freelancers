@@ -16,8 +16,8 @@ const Home = () => {
         fetchClients().then(data => setClients(data))
     }, [auth?.user])
 
-    if (!auth?.user) return <Spinner />
-    if (auth?.isAuthenticated() === "unauthenticated" || auth?.user === null) return redirect('/')
+    if (!auth?.checkAuth) return <Spinner />
+    if (auth?.isAuthenticated() === "unauthenticated") return redirect('/')
 
     return (
         <>

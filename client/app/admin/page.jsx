@@ -3,6 +3,7 @@
 import { useAuthContext } from 'contexts/AuthContext'
 import Spinner from '@components/ui/Spinner'
 import { useState } from 'react'
+import { redirect } from 'next/navigation'
 import Alert from '@components/ui/Alert'
 
 const page = () => {
@@ -25,8 +26,8 @@ const page = () => {
         }
     }
 
-    if (!auth?.user) return <Spinner />
-    if (auth?.isAuthenticated() === "unauthenticated" || auth?.user === null) return redirect('/')
+    if (!auth?.checkAuth) return <Spinner />
+    if (auth?.isAuthenticated() === "unauthenticated") return redirect('/')
     if (auth?.user && !auth?.user.admin) return redirect('/home')
 
     return (

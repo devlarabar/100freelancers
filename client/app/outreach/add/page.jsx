@@ -80,7 +80,7 @@ const AddOutreach = () => {
     }
     if (doRedirect) redirect('/home')
 
-    if (!auth?.user) return <Spinner />
+    if (!auth?.checkAuth) return <Spinner />
     if (auth?.user === "unauthenticated") return redirect('/')
 
     return (

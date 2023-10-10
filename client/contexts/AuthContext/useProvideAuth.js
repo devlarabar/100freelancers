@@ -36,7 +36,10 @@ const useProvideAuth = () => {
 
     const isAuthenticated = () => user ? true : 'unauthenticated'
 
+    const checkAuth = true
+
     return {
+        checkAuth,
         user,
         logout,
         isAuthenticated,
