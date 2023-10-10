@@ -52,6 +52,9 @@ const Header = ({ ThemeToggle }) => {
                             <li><Link href="/client/add">+ Client</Link></li>
                             <li><Link href="/outreach/add">+ Outreach</Link></li>
                             <li><Link href={'/settings'}>Settings</Link></li>
+                            {auth.user.admin &&
+                                <li><Link href={'/admin'}>Admin Tools</Link></li>
+                            }
                             <li><span className="pointer" onClick={logOut}>Logout</span></li>
                             <li><div className="form-control flex flex-row gap-1 mr-2">
                                 <ThemeToggle />
