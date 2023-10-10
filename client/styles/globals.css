@@ -8,32 +8,20 @@
 	--background-end-rgb: 255, 255, 255;
 }
 
-/* @media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
-	}
-} */
-
 body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	min-height: 100vh;
-	@apply  gap-5;
+	@apply gap-5;
 }
 
 .content {
-	@apply flex flex-col gap-5 px-10 md:px-20;
+	@apply flex flex-col gap-5 px-10 md:px-20 flex-1;
 }
 
 h2 {
 	@apply mt-5 mb-3 text-2xl font-extrabold leading-[1.15] sm:text-3xl;
-}
-
-.pointer:hover {
-	cursor: pointer;
 }
 
 /* Client Card */
@@ -45,11 +33,13 @@ h2 {
 .client-contact {
 	@apply text-xs text-secondary p-2 mt-2;
 }
-.contact-info-group{
-    @apply flex items-center mb-2;
+
+.contact-info-group {
+	@apply flex items-center mb-2;
 }
+
 .contact-icon {
-    @apply w-7 h-7 text-accent stroke-2;
+	@apply w-7 h-7 text-accent stroke-2;
 }
 
 h3 {
@@ -63,8 +53,7 @@ h4 {
 /* UI */
 
 hr {
-	border: none;
-	@apply bg-secondary w-full h-[1px];
+	@apply w-full max-w-[500px] border-0 rounded-full mx-auto h-[2px] bg-accent;
 }
 
 /* Forms */
@@ -74,7 +63,7 @@ form {
 }
 
 .button-form-submit {
-    @apply btn btn-accent bg-transparent text-accent text-lg border-4 hover:bg-accent hover:text-secondary hover:opacity-100;
+	@apply btn btn-accent bg-transparent text-accent text-lg border-4 hover:bg-accent hover:text-secondary hover:opacity-100;
 }
 
 input:not([type="checkbox"]) {
@@ -82,16 +71,21 @@ input:not([type="checkbox"]) {
 }
 
 .input-add {
-    @apply w-full rounded p-1;
+	@apply w-full rounded p-1;
 }
+
 .select {
-    @apply w-full rounded p-1 text-secondary bg-primary;
+	@apply w-full rounded p-1 text-secondary bg-primary;
 }
 
 .navbar {
-    @apply flex justify-between p-4;
+	@apply flex justify-between p-4;
 }
 
-.action-icon{
-    @apply w-7 h-7 mx-1 cursor-pointer text-secondary;
+.action-icon {
+	@apply w-7 h-7 mx-1 cursor-pointer text-secondary;
+}
+
+.text-submit {
+	@apply bg-transparent w-auto h-auto p-0 m-0 text-base font-bold;
 }
