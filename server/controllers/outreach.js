@@ -1,17 +1,19 @@
 const Outreach = require('../models/Outreach')
+const mockUser = require('../config/mockUser.json')
 
 module.exports = {
     getOutreaches: async (req, res) => {
-        console.log(req.user)
-        const userId = req.user.id
+        const userId = process.env.MOCK_USER === "true" ? mockUser._id : req.user.id
         const outreaches = await Outreach.find({ user: userId }).sort({ createdAt: -1 }).lean()
         res.json(outreaches)
     },
     addOutreach: async (req, res) => {
+        console.log(req.user)
         try {
+            const user = process.env.MOCK_USER === "true" ? mockUser._id : req.user.id
             const { client, contactDetails, responseDetails, clientWork } = req.body
             const outreach = await Outreach.create({
-                user: req.user.id,
+                user: user,
                 client: client,
                 contactDetails,
                 responseDetails,
