@@ -1,0 +1,37 @@
+[
+    {
+        "businessName": "Outshine Salon",
+        "businessType": "hair salon",
+        "phone": "(904) 756-2648",
+        "email": "outshine@salon.com",
+        "address": "555 Main Street, Houston, TX 12345"
+    },
+    {
+        "businessName": "Homegrown Brunch Cafe",
+        "businessType": "restaurant",
+        "phone": "(944) 724-1618",
+        "email": "homegrown@brunch.com",
+        "address": "555 Main Street, Houston, TX 12345"
+    },
+    {
+        "businessName": "Functional Fitness",
+        "businessType": "gym",
+        "phone": "(346) 754-1577",
+        "email": "functional@fitness.com",
+        "address": "555 Main Street, Houston, TX 12345"
+    },
+    {
+        "businessName": "O-Marketing",
+        "businessType": "marketing",
+        "phone": "(246) 755-1447",
+        "email": "o@marketing.com",
+        "address": "555 Main Street, Houston, TX 12345"
+    },
+    {
+        "businessName": "Nails Plus",
+        "businessType": "nail salon",
+        "phone": "(166) 733-1248",
+        "email": "nails@plus.com",
+        "address": "555 Main Street, Houston, TX 12345"
+    }
+]

@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 
 const useProvideAuth = () => {
     const [user, setUser] = useState(null)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [checkAuth, setCheckAuth] = useState(false)
 
     useEffect(() => {
         const fetchCurrentUser = async () => {
@@ -17,12 +19,10 @@ const useProvideAuth = () => {
             } catch (err) {
                 // No user
                 setUser(null)
-            }
-            if (response instanceof Object) {
-                // To-do: put redirect logic here
+                setIsAuthenticated('unauthenticated')
             }
         }
-        fetchCurrentUser()
+        fetchCurrentUser().then(data => setCheckAuth(true))
     }, [])
 
     const logout = async () => {
@@ -34,9 +34,8 @@ const useProvideAuth = () => {
         setUser(null)
     }
 
-    const isAuthenticated = () => user ? true : 'unauthenticated'
-
     return {
+        checkAuth,
         user,
         logout,
         isAuthenticated,

@@ -2,6 +2,7 @@
 services:
   mongo:
     image: mongo:6 
+    container_name: 100freelancers
     ports:
       - "27017:27017"
     environment:

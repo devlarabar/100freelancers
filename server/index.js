@@ -85,11 +85,13 @@ const homeRoutes = require('./routes/home')
 const authRoutes = require('./routes/auth')
 const clientRoutes = require('./routes/client')
 const outreachRoutes = require('./routes/outreach')
+const devRoutes = require('./routes/dev')
 
 app.use('/server/', homeRoutes)
 app.use('/server/auth', authRoutes)
 app.use('/server/client', clientRoutes)
 app.use('/server/outreach', outreachRoutes)
+app.use('/server/dev', devRoutes)
 
 connectDB().then(() => {
     app.listen(process.env.PORT || PORT, () => {

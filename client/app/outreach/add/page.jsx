@@ -4,6 +4,8 @@ import Spinner from '@components/ui/Spinner'
 import { useAuthContext } from 'contexts/AuthContext'
 import { useState, useEffect } from 'react'
 import { redirect } from 'next/navigation'
+import { fetchClients } from '@utils/client'
+import Alert from '@components/ui/Alert'
 
 const AddOutreach = () => {
     const auth = useAuthContext()
@@ -29,43 +31,33 @@ const AddOutreach = () => {
         }
     })
     const [doRedirect, setDoRedirect] = useState(false)
-    const [error, setError] = useState('')
-    const [warn, setWarn] = useState('')
+    const [alert, setAlert] = useState({ message: '', type: '' })
     const [submitDisabled, setSubmitDisabled] = useState(false)
 
     useEffect(() => {
-        const fetchClients = async () => {
-            const clientsData = await fetch(`/server/client/getclients`, {
-                method: 'GET',
-                credentials: 'include'
-            })
-            const clientsJSON = await clientsData.json()
-            setClients(clientsJSON)
-        }
+        fetchClients().then(data => setClients(data))
         const fetchOutreaches = async () => {
-            const outreachData = await fetch(`/server/outreach/getoutreaches`, {
+            const outreachData = await fetch('/server/outreach/getoutreaches', {
                 method: 'GET',
                 credentials: 'include'
             })
             const outreachJSON = await outreachData.json()
             setOutreaches(outreachJSON)
         }
-        
         fetchOutreaches()
-        fetchClients()
     }, [])
 
     useEffect(() => {
-        if (clients.length === 1 && outreaches.length >= 1) setWarn('You have already reached out to this client!')
+        if (clients.length === 1 && outreaches.length >= 1) setAlert({ message: 'You have already reached out to this client!', type: 'warning' })
     }, [clients, outreach])
 
     const validationError = () => {
         if (!outreach.client) {
-            setError('Please select a client.')
+            setAlert({ message: 'Please select a client.', type: 'error' })
             return true
         }
         if (!outreach.contactDetails.contactMethod) {
-            setError('Please select a contact method.')
+            setAlert({ message: 'Please select a contact method.', type: 'error' })
             return true
         }
         return false
@@ -88,27 +80,21 @@ const AddOutreach = () => {
     }
     if (doRedirect) redirect('/home')
 
-    if (!auth?.user) return <Spinner />
-    if (auth?.user === "unauthenticated") return redirect('/')
+    if (!auth?.checkAuth) return <Spinner />
+    if (auth?.isAuthenticated === "unauthenticated") return redirect('/')
 
     return (
         <form onSubmit={(e) => addOutreach(e)}>
-            {error && <div class="alert alert-error">
-                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>{error}</span>
-            </div>}
-            {warn && <div class="alert alert-warning">
-                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                <span>{warn}</span>
-            </div>}
+            {alert.message && <Alert message={alert.message} alertType={alert.type} />}
+
             <h3>Contact Information</h3>
             <label htmlFor="client">Client:
                 <select
                     id="client"
                     value={outreach.client}
                     onChange={(e) => {
-                        if (outreaches.some(x => x.client === e.target.value)) setWarn('You have already reached out to this client!')
-                        else setWarn('')
+                        if (outreaches.some(x => x.client === e.target.value)) setAlert({ message: 'You have already reached out to this client!', type: 'warning' })
+                        else setAlert({})
                         if (e.target.value !== '') setOutreach({ ...outreach, client: e.target.value })
                     }}
                     className="select select-bordered w-full"
