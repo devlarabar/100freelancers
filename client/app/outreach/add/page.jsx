@@ -86,6 +86,8 @@ const AddOutreach = () => {
     return (
         <form onSubmit={(e) => addOutreach(e)}>
             {alert.message && <Alert message={alert.message} alertType={alert.type} />}
+
+            <h3>Contact Information</h3>
             <label htmlFor="client">Client:
                 <select
                     id="client"
@@ -146,6 +148,71 @@ const AddOutreach = () => {
                     onChange={(e) => setOutreach({ ...outreach, contactDetails: { ...outreach.contactDetails, contactDate: e.target.value } })}
                     className="input-add"
                     required
+                />
+            </label>
+            <h3>Response Information</h3>
+            <label htmlFor="responded" className="flex gap-5">Responded:
+                <input
+                    id="responded"
+                    type="checkbox"
+                    value={outreach.responseDetails.responded}
+                    onChange={(e) => setOutreach({ ...outreach, responseDetails: { ...outreach.responseDetails, responded: e.target.checked}})}
+                    className="checkbox bg-primary"
+                />
+            </label>
+            <label htmlFor="responseDate">Response Date:
+                <input
+                    id="responseDate"
+                    type="date"
+                    value={outreach.responseDetails.responseDate}
+                    onChange={(e) => setOutreach({...outreach, responseDetails: { ...outreach.responseDetails, responseDate: e.target.value} })}
+                    className="input-add"
+                />
+            </label>
+            <label htmlFor="responseYes" className="flex gap-5">Responded Yes:
+                <input
+                    id="responseYes"
+                    type="checkbox"
+                    value={outreach.responseDetails.responseYes}
+                    onChange={(e) => setOutreach({...outreach, responseDetails: {...outreach.responseDetails, responseYes: e.target.checked} })}
+                    className="checkbox bg-primary"
+                />
+            </label>
+            <h3>Client Work Checklist</h3>
+            <label htmlFor="proposalSent" className="flex gap-5">Proposal Sent:
+                <input
+                    id="proposalSent"
+                    type="checkbox"
+                    value={outreach.clientWork.proposalSent}
+                    onChange={(e) => setOutreach({...outreach, clientWork: {...outreach.clientWork, proposalSent: e.target.checked} })}
+                    className="checkbox bg-primary"
+                />
+            </label>
+            <label htmlFor="contractSent" className="flex gap-5">Contract Sent:
+                <input
+                    id="contractSent"
+                    type="checkbox"
+                    value={outreach.clientWork.contractSent}
+                    onChange={(e) => setOutreach({...outreach, clientWork: {...outreach.clientWork, contractSent: e.target.checked} })}
+                    className="checkbox bg-primary"
+                />
+            </label>
+            <label htmlFor="siteCompleted" className="flex gap-5">Site Completed:
+                <input
+                    id="siteCompleted"
+                    type="checkbox"
+                    value={outreach.clientWork.siteCompleted}
+                    onChange={(e) => setOutreach({...outreach, clientWork: {...outreach.clientWork, siteCompleted: e.target.checked} })}
+                    className="checkbox bg-primary"
+                />
+            </label>
+            <label htmlFor="paid" className="flex gap-5">Paid:
+                <input
+                    id="paid"
+                    type="checkbox"
+                    value={outreach.clientWork.paid}
+                    onChange={(e) => setOutreach({...outreach, clientWork: {...outreach.clientWork, paid: e.target.checked} })}
+                    className="checkbox bg-primary"
                 />
             </label>
             <button type="submit" className="button-form-submit" disabled={submitDisabled}>Add Outreach</button>
