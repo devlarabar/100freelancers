@@ -11,12 +11,12 @@ import { fetchClients } from '@utils/client'
 const Home = () => {
     const auth = useAuthContext()
     const [clients, setClients] = useState(null)
-    const [filteringOptions, setFilteringOptions] = useState([]); // Add state for filtering options
+    const [filteringOptions, setFilteringOptions] = useState([])
 
     useEffect(() => {
         fetchClients().then(data => {
             setClients(data)
-            setFilteringOptions(data); // Initialize filteringOptions with the fetched data
+            setFilteringOptions(data)
         })
     }, [auth?.user])
 
@@ -25,26 +25,27 @@ const Home = () => {
 
     function sortClients(sortingFunction) {
         // Clone the clients array and sort it using the provided sorting function.
-        const sortedClients = [...clients].sort(sortingFunction);
-        setClients(sortedClients);  // We set the clients state variable with sorted array
-    };
+        const sortedClients = [...clients].sort(sortingFunction)
+        setClients(sortedClients)
+    }
 
     function filterClients(data) {
-        setClients(data) // We set the clients state variable with the filtered array coming from action menu component
+        setClients(data)
     }
 
     function clearFilter() {
-        setClients(filteringOptions); // We reset the clients state variable with the original data from the server
-    };
-    
+        // Reset 'clients' to original data from the server
+        setClients(filteringOptions)
+    }
+
     return (
         <>
             <div className="px-8 pb-4">
-                <ActionMenu 
-                    sortClients={sortClients} 
-                    filterClients={filterClients} 
-                    filteringOptions={filteringOptions} 
-                    clearFilter={clearFilter} 
+                <ActionMenu
+                    sortClients={sortClients}
+                    filterClients={filterClients}
+                    filteringOptions={filteringOptions}
+                    clearFilter={clearFilter}
                 />
             </div>
 
