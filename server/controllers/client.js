@@ -14,7 +14,7 @@ module.exports = {
             const client = await Client.create({
                 user: user,
                 businessName,
-                businessType,
+                businessType: businessType.toLowerCase(),
                 address,
                 email,
                 phone

@@ -31,7 +31,7 @@ const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions 
 
         let filteredData = filteringOptions.filter((option) =>
             // We get an array of filteredData based on the filtering values
-            updateFilters.includes(option.businessType)
+            updateFilters.includes(option.businessType.toLowerCase())
         )
 
 
@@ -49,15 +49,21 @@ const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions 
         clearFilter()
     }
 
-    const filterOptionElements = filteringOptions?.map((option, i) => {
+    const businessTypesList = [...new Set(
+        filteringOptions
+            ?.map((client, i) => client.businessType.toLowerCase())
+            .sort()
+    )]
+
+    const filterOptionElements = businessTypesList?.map((option, i) => {
         return (
             <label key={i} className='label '>
-                <span className="label-text">{option.businessType}</span>
+                <span className="label-text capitalize">{option}</span>
                 <input
                     type='checkbox'
-                    value={option.businessType}
-                    checked={currentFilter.includes(option.businessType)}
-                    onChange={(e) => handleFiltering(e, option.businessType)}
+                    value={option}
+                    checked={currentFilter.includes(option)}
+                    onChange={(e) => handleFiltering(e, option)}
                     className='checkbox'
                 />
             </label>
