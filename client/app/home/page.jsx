@@ -63,33 +63,3 @@ const Home = () => {
 }
 
 export default Home
-
-
-// <section className="flex">
-// <ArrowsUpDownIcon className="action-icon" title="Sort By" />
-// <FunnelIcon className="action-icon" title="Filter By" />
-// <ListBulletIcon className="action-icon" title="List View" />
-// </section>
-
-{/* <div className="">
-<div className="dropdown dropdown-end text-secondary">
-    <ul tabIndex="0" className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-52">
-        <li><Link href=''>Home</Link></li>
-        <li>
-            <Link href={'/profile'} className="justify-between">
-                Profile
-                <span className="badge">New</span>
-            </Link>
-        </li>
-        <li><Link href="/client/add">+ Client</Link></li>
-        <li><Link href="/outreach/add">+ Outreach</Link></li>
-        <li><Link href={'/settings'}>Settings</Link></li>
-        <li><span className="pointer" onClick={logOut}>Logout</span></li>
-        <li><div className="form-control flex flex-row gap-1 mr-2">
-            <ThemeToggle />
-        </div></li>
-    </ul>
-</div>
-</div> 
-</div>
- */}
