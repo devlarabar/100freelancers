@@ -56,6 +56,10 @@ hr {
 	@apply w-full max-w-[500px] border-0 rounded-full mx-auto h-[2px] bg-accent;
 }
 
+.dropdown-menu {
+	@apply mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-52;
+}
+
 /* Forms */
 
 form {
