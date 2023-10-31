@@ -2,7 +2,7 @@ import React from 'react'
 import { EllipsisHorizontalIcon, PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline'
 const ClientCard = ({ client }) => {
     return (
-        <section className="client-card">
+        <section className="client-card mb-8">
             <div>
                 <div className="flex justify-between">
                     <h3 className="">{client.businessName}</h3>
