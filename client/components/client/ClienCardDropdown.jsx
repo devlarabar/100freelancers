@@ -4,7 +4,7 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 
 function ClienCardDropdown() {
   return (
-    <div className="dropdown dropdown-right border text-secondary">
+    <div className="dropdown dropdown-right  text-secondary">
       <label tabIndex={0} className="">
         <EllipsisHorizontalIcon className="h-8 w-8 cursor-pointer stroke-1 text-accent hover:stroke-2" />
       </label>
