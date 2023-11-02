@@ -11,7 +11,7 @@ const ClientCard = ({ client }) => {
     <section className="client-card">
       <div>
         <div className="relative flex justify-between">
-          <h3 className="">{client.name}</h3>
+          <h3 className="">{client.businessName}</h3>
           <ClienCardDropdown />
         </div>
         <hr />
