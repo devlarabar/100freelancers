@@ -93,3 +93,13 @@ input:not([type="checkbox"]) {
 .text-submit {
 	@apply bg-transparent w-auto h-auto p-0 m-0 text-base font-bold;
 }
+
+/* Landing page */
+
+.landing-page h3 {
+	@apply text-7xl text-accent;
+}
+
+.landing-page p {
+	@apply ml-10 text-3xl font-bold;
+}

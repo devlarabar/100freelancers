@@ -2,14 +2,38 @@
 
 import { useAuthContext } from 'contexts/AuthContext'
 import { redirect } from 'next/navigation'
+import Image from 'next/image'  // Import Image component from Next
 
 export default function Home() {
     const auth = useAuthContext()
     if (auth?.user) return redirect('/home')
     return (
-        <main>
+        <main className = "landing-page">
             <h2>Welcome to 100freelancers!</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </main>
+            <p>Organize and keep track of freelance client outreach.</p>  {/*Added quick discription of what 100Freelancers is*/}
+
+            {/* Adding the elements from the homepage layout */}
+            
+            <ul>
+                <li>
+                    <h3>VIEW</h3>
+                    <p>CONTACTED BUSINESSES</p>
+                </li>
+                <li>
+                    <h3>ADD</h3>
+                    <p>NEW CLIENTS</p>
+                </li>
+                <li>
+                    <h3>TRACK</h3>
+                    <p>ONGOING OUTREACH</p>
+                </li>
+            </ul>
+            <Image 
+                src="/Test-Screenshot.png"
+                alt='Screenshot of 100freelancers pages'
+                width={1000}
+                height={1000}
+            />
+        </main>    
     )
 }
