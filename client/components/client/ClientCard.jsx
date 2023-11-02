@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Menu } from "@headlessui/react";
-import DropdownCard from "./DropdownCard";
+import ClienCardDropdown from "./ClienCardDropdown";
 
 import {
-  EllipsisHorizontalIcon,
   PhoneIcon,
   EnvelopeIcon,
   MapPinIcon,
@@ -14,14 +12,8 @@ const ClientCard = ({ client }) => {
       <div>
         <div className="relative flex justify-between">
           <h3 className="">{client.name}</h3>
-          <Menu>
-            <Menu.Button>
-              <EllipsisHorizontalIcon className="h-8 w-8 cursor-pointer stroke-1 text-accent hover:stroke-2" />
-            </Menu.Button>
-            <DropdownCard />
-          </Menu>
+          <ClienCardDropdown />
         </div>
-
         <hr />
         <span className="text-sm italic">{client.businessType}</span>
         <div className="client-contact">

@@ -11,19 +11,44 @@ import { fetchClients } from '@utils/client'
 const Home = () => {
     const auth = useAuthContext()
     const [clients, setClients] = useState(null)
+    const [filteringOptions, setFilteringOptions] = useState([])
 
     useEffect(() => {
-        fetchClients().then(data => setClients(data))
+        fetchClients().then(data => {
+            setClients(data)
+            setFilteringOptions(data)
+        })
     }, [auth?.user])
 
     if (!auth?.checkAuth) return <Spinner />
     if (auth?.isAuthenticated === "unauthenticated") return redirect('/')
 
+    function sortClients(sortingFunction) {
+        // Clone the clients array and sort it using the provided sorting function.
+        const sortedClients = [...clients].sort(sortingFunction)
+        setClients(sortedClients)
+    }
+
+    function filterClients(data) {
+        setClients(data)
+    }
+
+    function clearFilter() {
+        // Reset 'clients' to original data from the server
+        setClients(filteringOptions)
+    }
+
     return (
         <>
             <div className="px-8 pb-4">
-                <ActionMenu />
+                <ActionMenu
+                    sortClients={sortClients}
+                    filterClients={filterClients}
+                    filteringOptions={filteringOptions}
+                    clearFilter={clearFilter}
+                />
             </div>
+
             <div className="flex flex-wrap gap-x-[2%] gap-y-4 justify-center">
                 {clients === null && <Spinner />}
                 {clients && clients.length > 0
@@ -31,6 +56,7 @@ const Home = () => {
                         return <ClientCard client={client} key={index} />
                     })
                 }
+
                 {clients && clients.length === 0 && <p>You have not added any clients!</p>}
             </div>
         </>

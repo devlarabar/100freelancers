@@ -41,7 +41,7 @@ const Header = ({ ThemeToggle }) => {
                                 />
                             </div>
                         </label>
-                        <ul tabIndex="0" className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-52">
+                        <ul tabIndex="0" className="dropdown-menu">
                             <li><Link href={homeLink}>Home</Link></li>
                             <li>
                                 <Link href={'/profile'} className="justify-between">
@@ -56,9 +56,7 @@ const Header = ({ ThemeToggle }) => {
                                 <li><Link href={'/admin'}>Admin Tools</Link></li>
                             }
                             <li><span className="pointer" onClick={logOut}>Logout</span></li>
-                            <li><div className="form-control flex flex-row gap-1 mr-2">
-                                <ThemeToggle />
-                            </div></li>
+                            <li><ThemeToggle /></li>
                         </ul>
                     </div>
 
