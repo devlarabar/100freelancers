@@ -12,7 +12,7 @@ export default function Home() {
             <h2>Welcome to 100freelancers!</h2>
             <p>Organize and keep track of freelance client outreach.</p>  {/*Added quick discription of what 100Freelancers is*/}
 
-            {/* Adding the elements from the homepage layout */}
+            {/* Adding the elements from the homepage layout.  Test-Screenshot.png is located in the 'public' folder */}
             
             <ul>
                 <li>
