@@ -96,10 +96,31 @@ input:not([type="checkbox"]) {
 
 /* Landing page */
 
-.landing-page h3 {
-	@apply text-7xl text-accent;
+.landing-page {
+	@apply border-t-4 border-accent;
 }
 
-.landing-page p {
-	@apply ml-10 text-3xl font-bold;
+.landing-page > h2 {
+	@apply text-5xl
+}
+
+.landing-page > p {
+	@apply text-3xl
+}
+
+.floats {
+	@apply flex flex-row justify-between;
+	@apply mt-10
+}
+
+.floats h3 {
+	@apply text-7xl text-accent py-3;
+}
+
+.floats p {
+	@apply ml-10 text-3xl font-bold pb-10;
+}
+ 
+.floats ul, .floats img {
+	@apply flex-auto;
 }

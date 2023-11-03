@@ -2,7 +2,6 @@
 
 import { useAuthContext } from 'contexts/AuthContext'
 import { redirect } from 'next/navigation'
-import Image from 'next/image'  // Import Image component from Next
 
 export default function Home() {
     const auth = useAuthContext()
@@ -13,27 +12,28 @@ export default function Home() {
             <p>Organize and keep track of freelance client outreach.</p>  {/*Added quick discription of what 100Freelancers is*/}
 
             {/* Adding the elements from the homepage layout.  Test-Screenshot.png is located in the 'public' folder */}
-            
-            <ul>
-                <li>
-                    <h3>VIEW</h3>
-                    <p>CONTACTED BUSINESSES</p>
-                </li>
-                <li>
-                    <h3>ADD</h3>
-                    <p>NEW CLIENTS</p>
-                </li>
-                <li>
-                    <h3>TRACK</h3>
-                    <p>ONGOING OUTREACH</p>
-                </li>
-            </ul>
-            <Image 
-                src="/Test-Screenshot.png"
-                alt='Screenshot of 100freelancers pages'
-                width={1000}
-                height={1000}
-            />
+            <section className="floats">
+                <ul>
+                    <li>
+                        <h3>VIEW</h3>
+                        <p>CONTACTED BUSINESSES</p>
+                    </li>
+                    <li>
+                        <h3>ADD</h3>
+                        <p>NEW CLIENTS</p>
+                    </li>
+                    <li>
+                        <h3>TRACK</h3>
+                        <p>ONGOING OUTREACH</p>
+                    </li>
+                </ul>
+                <img
+                    src="/Test-Screenshot.png"
+                    alt='Screenshot of 100freelancers pages'
+                    // width={1000}
+                    // height={1000}
+                />
+            </section>
         </main>    
     )
 }
