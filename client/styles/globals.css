@@ -60,6 +60,10 @@ hr {
 	@apply mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-52;
 }
 
+.dropdown-menu-small {
+	@apply mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-36;
+}
+
 /* Forms */
 
 form {
