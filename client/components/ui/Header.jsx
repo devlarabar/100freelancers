@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import Logo from './/Logo'
 import { useState, useEffect } from 'react'
 import { redirect } from 'next/navigation'
 import { useAuthContext } from '@contexts/AuthContext'
@@ -26,7 +27,7 @@ const Header = ({ ThemeToggle }) => {
 
     return (
         <header className="navbar">
-            <Link href={homeLink} className="btn btn-ghost normal-case text-xl"><span className="text-accent">100</span>freelancers</Link>
+            <Link href={homeLink} className=""><Logo/></Link>
             <div className="">
                 {auth?.user ? (
                     <div className="dropdown dropdown-end text-secondary">
@@ -59,7 +60,6 @@ const Header = ({ ThemeToggle }) => {
                             <li><ThemeToggle /></li>
                         </ul>
                     </div>
-
                 )
                     : (<>
                         <form action={'/server/auth/discord'}>
