@@ -94,7 +94,7 @@ const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions 
                 </div>
             }
             {currentFilter &&
-                <section className='flex justify-center items-center'>
+                <section className='flex flex-wrap justify-start items-center gap-1'>
                     {currentFilter.map((filter, i) =>
                         (<div key={i} className="badge badge-primary self-center flex justify-center items-center gap-1 leading-none cursor-pointer mx-1" onClick={(e) => handleFiltering(e, filter)}>{filter} <XMarkIcon className="w-3 h-3" /></div>))
                     }
