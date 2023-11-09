@@ -40,7 +40,7 @@ const Home = () => {
 
     return (
         <>
-            <div className="px-8 pb-4">
+            <div className="pb-4">
                 <ActionMenu
                     sortClients={sortClients}
                     filterClients={filterClients}
@@ -49,7 +49,7 @@ const Home = () => {
                 />
             </div>
 
-            <div className="flex flex-wrap gap-x-[2%] gap-y-4 justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[2%] gap-y-4 justify-center">
                 {clients === null && <Spinner />}
                 {clients && clients.length > 0
                     && clients.map((client, index) => {
