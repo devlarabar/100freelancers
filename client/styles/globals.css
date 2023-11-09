@@ -30,6 +30,15 @@ h2 {
 	@apply bg-primary rounded-3xl p-4 xs:p-5 xs:h-60 text-secondary;
 }
 
+/* Client Card/List Container Views */
+
+.card-view{
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[2%] gap-y-4 justify-center;
+}
+.list-view{
+    
+}
+
 .client-contact {
 	@apply text-xs text-secondary p-1 xs:p-2 mt-2;
 }
@@ -40,6 +49,9 @@ h2 {
 
 .contact-icon {
 	@apply min-w-min min-h-min w-5 h-5 xs:w-7 xs:h-7 text-accent stroke-2;
+}
+.contact-icon-list {
+	@apply w-4 h-4 text-accent stroke-2;
 }
 
 h3 {
