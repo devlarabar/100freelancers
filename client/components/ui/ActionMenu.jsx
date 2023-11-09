@@ -1,7 +1,7 @@
 import { FunnelIcon, ArrowsUpDownIcon, ListBulletIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react'
 
-const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions }) => {
+const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions, view }) => {
     const [currentSort, setCurrentSort] = useState('')
     const [currentFilter, setCurrentFilter] = useState([])
 
@@ -16,7 +16,6 @@ const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions 
         sortClients((a, b) => b['businessType'].localeCompare(a['businessType'], "en", { sensitivity: 'base' }))
         setCurrentSort('Sorted ZA')
     }
-
 
     function handleFiltering(event, filterValue) {
         const filteringValue = filterValue
@@ -87,7 +86,7 @@ const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions 
                     {filterOptionElements}
                 </ul>
             </div>
-            <ListBulletIcon className="action-icon" title="List View" />
+            <ListBulletIcon onClick = {() => view()} className="action-icon" title="List View" />
             {currentSort &&
                 <div className="badge badge-primary self-center flex justify-center items-center leading-none mx-1">
                     {currentSort}
