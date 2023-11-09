@@ -9,8 +9,9 @@ import {
 	MapPinIcon,
 } from "@heroicons/react/24/outline"
 
-const ClientCard = ({ client }) => {
-	const [mounted, setMounted] = useState(false)
+const ClientCard = ({ client, view }) => {
+	
+    const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
 		const clientEmailContainer = document.querySelector(`.clientEmail${client._id}`)
@@ -18,8 +19,36 @@ const ClientCard = ({ client }) => {
 		clientEmailContainer.innerHTML = `${clientEmail[0]}<wbr>@${clientEmail[1]}`
 	}, [mounted])
 
-	return (
-		<section className="client-card">
+    if(view === 'list-view'){
+        return (
+            <section className="bg-primary rounded w-full p-4 my-1">
+                <div className="flex justify-between items-center">
+                    <div className="w-3/12 border-r border-accent">
+                        <h5 className="font-bold">{client.businessName}</h5>
+                        <span className="text-sm italic">{client.businessType}</span>
+                    </div>
+                    <div className="flex flex-col w-9/12 ps-4 md:flex-row ">
+                        <div className="contact-info-group md:w-4/12 items-center">
+                            <PhoneIcon className="contact-icon-list me-2" />
+                            <p className="text-xs">{client.phone}</p>
+                        </div>
+                        <div className="contact-info-group md:w-4/12">
+                            <EnvelopeIcon className="contact-icon-list me-2" />
+                            <p className="text-xs break-all">{client.email}</p>
+                        </div>
+                        <div className="contact-info-group md:w-4/12">
+                            <MapPinIcon className="contact-icon-list me-2" />
+                            <p className="text-xs">{client.address}</p>
+                        </div>
+                    </div>
+                    <ClienCardDropdown />
+                </div>
+        </section>
+        );
+    }
+	else return (
+		
+        <section className="client-card">
 			<div>
 				<div className="relative flex justify-between">
 					<h3>{client.businessName}</h3>
