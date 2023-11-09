@@ -73,7 +73,7 @@ const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions 
 
 
     return (
-        <section className="flex pl-8">
+        <section className="flex">
             <div className="dropdown dropdown-bottom text-secondary">
                 <label tabIndex={0} className=""><ArrowsUpDownIcon className="action-icon" title="Sort By" /></label>
                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-16 ">
