@@ -125,6 +125,14 @@ input:not([type="checkbox"]) {
 	@apply ml-10 text-3xl font-bold pb-10;
 }
  
-.floats ul, .floats img {
-	@apply flex-auto;
+.floats ul {
+	@apply pl-20 pt-24 w-1/3;
+}
+
+.floats img {
+	@apply border-l-8 border-y-8 border-accent rounded-l-3xl;
+}
+
+.outreach {
+	@apply border-8 border-accent rounded-3xl
 }
