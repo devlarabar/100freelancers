@@ -12,7 +12,8 @@ const Home = () => {
     const auth = useAuthContext()
     const [clients, setClients] = useState(null)
     const [filteringOptions, setFilteringOptions] = useState([])
-
+    const [view, setView] = useState('card-view')
+    
     useEffect(() => {
         fetchClients().then(data => {
             setClients(data)
@@ -37,6 +38,10 @@ const Home = () => {
         // Reset 'clients' to original data from the server
         setClients(filteringOptions)
     }
+    function handleView() {
+        //toggles view from card to list view
+        setView(view === 'card-view' ? 'list-view' : 'card-view');
+    }
 
     return (
         <>
@@ -46,14 +51,15 @@ const Home = () => {
                     filterClients={filterClients}
                     filteringOptions={filteringOptions}
                     clearFilter={clearFilter}
+                    view = {handleView}
                 />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[2%] gap-y-4 justify-center">
+            <div className={view}>
                 {clients === null && <Spinner />}
                 {clients && clients.length > 0
                     && clients.map((client, index) => {
-                        return <ClientCard client={client} key={index} />
+                        return <ClientCard view={view} client={client} key={index} />
                     })
                 }
 
