@@ -17,7 +17,7 @@ body {
 }
 
 .content {
-	@apply flex flex-col gap-5 px-10 md:px-20 flex-1;
+	@apply flex flex-col gap-5 px-5 sm:px-8 md:px-12 pb-10 flex-1 w-full max-w-7xl mx-auto;
 }
 
 h2 {
@@ -27,11 +27,11 @@ h2 {
 /* Client Card */
 
 .client-card {
-	@apply bg-primary rounded-3xl p-5 h-56 w-96 text-secondary;
+	@apply bg-primary rounded-3xl p-4 xs:p-5 xs:h-60 text-secondary;
 }
 
 .client-contact {
-	@apply text-xs text-secondary p-2 mt-2;
+	@apply text-xs text-secondary p-1 xs:p-2 mt-2;
 }
 
 .contact-info-group {
@@ -39,11 +39,11 @@ h2 {
 }
 
 .contact-icon {
-	@apply w-7 h-7 text-accent stroke-2;
+	@apply min-w-min min-h-min w-5 h-5 xs:w-7 xs:h-7 text-accent stroke-2;
 }
 
 h3 {
-	@apply text-xl font-bold text-secondary;
+	@apply text-lg xs:text-xl font-bold text-secondary;
 }
 
 h4 {
@@ -61,7 +61,7 @@ hr {
 }
 
 .dropdown-menu-small {
-	@apply mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-36;
+	@apply mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-36 left-[-6.5rem];
 }
 
 /* Forms */
@@ -91,7 +91,7 @@ input:not([type="checkbox"]) {
 }
 
 .action-icon {
-	@apply w-7 h-7 mx-1 cursor-pointer text-secondary;
+	@apply min-w-min w-7 h-7 mx-1 cursor-pointer text-secondary;
 }
 
 .text-submit {
