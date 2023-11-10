@@ -26,9 +26,9 @@ const Header = ({ ThemeToggle }) => {
     if (doRedirect) redirect('/')
 
     return (
-        <header className="navbar">
-            <Link href={homeLink} className="w-50 h-10"><Logo/></Link>
-            <div className="mr-14">
+        <header className="navbar w-full max-w-7xl mx-auto sm:px-8 md:px-12">
+            <Link href={homeLink} className=""><Logo /></Link>
+            <div className="">
                 {auth?.user ? (
                     <div className="dropdown dropdown-end text-secondary">
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">

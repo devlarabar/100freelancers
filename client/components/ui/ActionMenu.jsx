@@ -73,7 +73,7 @@ const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions 
 
 
     return (
-        <section className="flex pl-8">
+        <section className="flex">
             <div className="dropdown dropdown-bottom text-secondary">
                 <label tabIndex={0} className=""><ArrowsUpDownIcon className="action-icon" title="Sort By" /></label>
                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-16 ">
@@ -94,7 +94,7 @@ const ActionMenu = ({ sortClients, filterClients, clearFilter, filteringOptions 
                 </div>
             }
             {currentFilter &&
-                <section className='flex justify-center items-center'>
+                <section className='flex flex-wrap justify-start items-center gap-1'>
                     {currentFilter.map((filter, i) =>
                         (<div key={i} className="badge badge-primary self-center flex justify-center items-center gap-1 leading-none cursor-pointer mx-1" onClick={(e) => handleFiltering(e, filter)}>{filter} <XMarkIcon className="w-3 h-3" /></div>))
                     }
