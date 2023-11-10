@@ -100,39 +100,31 @@ input:not([type="checkbox"]) {
 
 /* Landing page */
 
-.landing-page {
-	@apply border-t-4 border-accent;
-}
+/* .landing-page {
+	@apply ;
+} */
 
-.landing-page > h2 {
-	@apply text-5xl
-}
-
-.landing-page > p {
-	@apply text-3xl
-}
-
-.floats {
+/* .floats {
 	@apply flex flex-row justify-between;
 	@apply mt-10
-}
+} */
 
-.floats h3 {
+/* .floats h3 {
 	@apply text-7xl text-accent py-3;
 }
 
 .floats p {
 	@apply ml-10 text-3xl font-bold pb-10;
-}
+} */
  
-.floats ul {
+/* .floats ul {
 	@apply pl-20 pt-24 w-1/3;
-}
+} */
 
-.floats img {
+/* .floats img {
 	@apply border-l-8 border-y-8 border-accent rounded-l-3xl;
-}
+} */
 
-.outreach {
+/* .outreach {
 	@apply border-8 border-accent rounded-3xl
-}
+} */
