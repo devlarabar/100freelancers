@@ -4,8 +4,8 @@ const Logo = (props) => {
         
             xmlns="http://www.w3.org/2000/svg"
                 width={500}
-                height={150}
-                viewBox="0 0 750 375"
+                height={110}
+                viewBox="0 -20 1300 375"
                 {...props}
             >
             <defs>

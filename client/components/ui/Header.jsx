@@ -27,8 +27,8 @@ const Header = ({ ThemeToggle }) => {
 
     return (
         <header className="navbar">
-            <Link href={homeLink} className=""><Logo/></Link>
-            <div className="">
+            <Link href={homeLink} className="w-50 h-10"><Logo/></Link>
+            <div className="mr-14">
                 {auth?.user ? (
                     <div className="dropdown dropdown-end text-secondary">
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
@@ -65,7 +65,7 @@ const Header = ({ ThemeToggle }) => {
                         <form action={'/server/auth/discord'}>
                             <button
                                 type="submit"
-                                className="btn btn-primary"
+                                className="btnCustom"
                             >
                                 Sign In
                             </button></form>
