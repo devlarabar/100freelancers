@@ -2,7 +2,7 @@ import { FunnelIcon, ArrowsUpDownIcon, ListBulletIcon, XMarkIcon } from '@heroic
 
 import { sortingTypes } from "@/app/home/page.jsx"
 
-const ActionMenu = ({ 
+const ActionMenu = ({
     clients,
     handleSortAZ,
     handleSortZA,
@@ -12,8 +12,9 @@ const ActionMenu = ({
     currentFilter,
 }) => {
     const filterOptionElements = clients
-        .map(client => client.businessType)
+        .map(client => client.businessType.toLowerCase())
         .filter((businessType, index, businessTypes) => index === businessTypes.indexOf(businessType))
+        .sort()
         .map((businessType, i) => {
             return (
                 <label key={i} className='label'>

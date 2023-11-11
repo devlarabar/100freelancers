@@ -31,7 +31,7 @@ const Home = () => {
         let result = dbClients ? [...dbClients] : []
         
         if (currentFilter.length > 0) {
-            result = dbClients.filter(option => currentFilter.includes(option.businessType)) || []
+            result = dbClients.filter(option => currentFilter.includes(option.businessType.toLowerCase())) || []
         }
 
         if (currentSort !== null) {
