@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import Logo from './/Logo'
 import { useState, useEffect } from 'react'
 import { redirect } from 'next/navigation'
 import { useAuthContext } from '@contexts/AuthContext'
@@ -25,8 +26,8 @@ const Header = ({ ThemeToggle }) => {
     if (doRedirect) redirect('/')
 
     return (
-        <header className="navbar">
-            <Link href={homeLink} className="btn btn-ghost normal-case text-xl"><span className="text-accent">100</span>freelancers</Link>
+        <header className="navbar w-full max-w-7xl mx-auto sm:px-8 md:px-12">
+            <Link href={homeLink} className=""><Logo /></Link>
             <div className="">
                 {auth?.user ? (
                     <div className="dropdown dropdown-end text-secondary">
@@ -41,7 +42,7 @@ const Header = ({ ThemeToggle }) => {
                                 />
                             </div>
                         </label>
-                        <ul tabIndex="0" className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-primary border border-secondary rounded-box w-52">
+                        <ul tabIndex="0" className="dropdown-menu">
                             <li><Link href={homeLink}>Home</Link></li>
                             <li>
                                 <Link href={'/profile'} className="justify-between">
@@ -56,12 +57,9 @@ const Header = ({ ThemeToggle }) => {
                                 <li><Link href={'/admin'}>Admin Tools</Link></li>
                             }
                             <li><span className="pointer" onClick={logOut}>Logout</span></li>
-                            <li><div className="form-control flex flex-row gap-1 mr-2">
-                                <ThemeToggle />
-                            </div></li>
+                            <li><ThemeToggle /></li>
                         </ul>
                     </div>
-
                 )
                     : (<>
                         <form action={'/server/auth/discord'}>
