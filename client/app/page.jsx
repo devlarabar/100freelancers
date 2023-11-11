@@ -9,8 +9,8 @@ export default function Home() {
     return (
         <main className = "border-t-4 border-accent pt-8">
             {/* Adding the elements from the homepage layout.  images located in the 'public' folder */}
-            <section className="floats">
-                <ul className='p-0 pt-4 w-1/3'>
+            <section className="floats block lg:flex flex-row justify-between mt-0">
+                <ul className='p-0 pt-6 w-full lg:w-1/3'>
                     <li>
                         <h3>VIEW</h3>
                         <p>CONTACTED BUSINESSES</p>
@@ -24,14 +24,14 @@ export default function Home() {
                         <p>ONGOING OUTREACH</p>
                     </li>
                 </ul>
-                <div className="screenshots flex w-2/3 justify-end items-end relative">
+                <div className="flex flex-col-reverse items-center lg:w-3/5 xl:flex-row xl:relative ">
                     <img
-                        className="border-8 border-accent relative left-[6rem] bottom-[-3rem] self-end rounded-3xl h-96 rounded-l-3xl"
+                        className="border-8 border-accent rounded-3xl h-96 rounded-l-3xl mt-8 xl:relative xl:left-[-5rem] bottom-[-4rem] xl:z-10"
                         src="/outreach-one.png"
                         alt='Screenshot of 100freelancers outreach page'
                     />
                     <img 
-                        className="full-screen w-8/12 self-start border-8 border-accent rounded-3xl"
+                        className="hidden sm:block border-8 border-accent rounded-3xl xl:relative xl:right-[11rem] xl:self-start xl:z-1 xl:w-[40rem]"
                         src="/full-screen.png" 
                         alt="Screenshot of 100freelancers client tiles" 
                     />
