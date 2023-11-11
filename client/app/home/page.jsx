@@ -1,5 +1,6 @@
 "use client"
 
+import { useMemo } from 'react'
 import { redirect } from 'next/navigation'
 import Spinner from '@components/ui/Spinner'
 import ClientCard from '@components/client/ClientCard'
@@ -8,54 +9,95 @@ import ActionMenu from '@components/ui/ActionMenu'
 import { useState, useEffect } from 'react'
 import { fetchClients } from '@utils/client'
 
+export const sortingTypes = {
+    ascending: "ascending",
+    descending: "descending",
+}
+
 const Home = () => {
     const auth = useAuthContext()
-    const [clients, setClients] = useState(null)
-    const [filteringOptions, setFilteringOptions] = useState([]); // Add state for filtering options
+    const [dbClients, setDBClients] = useState(null)
+
+    const [currentSort, setCurrentSort] = useState(null)
+    const [currentFilter, setCurrentFilter] = useState([])
 
     useEffect(() => {
         fetchClients().then(data => {
-            setClients(data)
-            setFilteringOptions(data); // Initialize filteringOptions with the fetched data
+            setDBClients(data)
         })
     }, [auth?.user])
+
+    const clients = useMemo(() => {
+        let result = dbClients ? [...dbClients] : []
+        
+        if (currentFilter.length > 0) {
+            result = dbClients.filter(option => currentFilter.includes(option.businessType)) || []
+        }
+
+        if (currentSort !== null) {
+            result = result.sort((a, b) => {
+                let first = a
+                let second = b
+
+                if (currentSort === sortingTypes.descending) {
+                    first = b
+                    second = a
+                }
+
+                return first['businessType'].localeCompare(second['businessType'], "en", { sensitivity: 'base' })
+            })
+        }
+
+        return result
+    }, [dbClients, currentFilter, currentSort])
+
+    function handleSortAZ () {
+        setCurrentSort(sortingTypes.ascending)
+    }
+
+    function handleSortZA () {
+        setCurrentSort(sortingTypes.descending)
+    }
+
+    function handleFiltering (event) {
+        const filteringValue = event.target.value || event.target.innerHTML
+        const updateFilters = [...currentFilter]
+
+        if (updateFilters.includes(filteringValue)) {
+            updateFilters.splice(updateFilters.indexOf(filteringValue), 1)
+        } else {
+            updateFilters.push(filteringValue)
+        }
+
+        setCurrentFilter(updateFilters)
+    }
+
+    function removeFilter () {
+        setCurrentFilter([])
+    }
 
     if (!auth?.checkAuth) return <Spinner />
     if (auth?.isAuthenticated === "unauthenticated") return redirect('/')
 
-    function sortClients(sortingFunction) {
-        // Clone the clients array and sort it using the provided sorting function.
-        const sortedClients = [...clients].sort(sortingFunction);
-        setClients(sortedClients);  // We set the clients state variable with sorted array
-    };
-
-    function filterClients(data) {
-        setClients(data) // We set the clients state variable with the filtered array coming from action menu component
-    }
-
-    function clearFilter() {
-        setClients(filteringOptions); // We reset the clients state variable with the original data from the server
-    };
-    
     return (
         <>
             <div className="px-8 pb-4">
-                <ActionMenu 
-                    sortClients={sortClients} 
-                    filterClients={filterClients} 
-                    filteringOptions={filteringOptions} 
-                    clearFilter={clearFilter} 
+                <ActionMenu
+                    clients={dbClients || []}
+                    handleSortAZ={handleSortAZ}
+                    handleSortZA={handleSortZA}
+                    handleFiltering={handleFiltering}
+                    removeFilter={removeFilter}
+                    currentSort={currentSort}
+                    currentFilter={currentFilter}
                 />
             </div>
 
             <div className="flex flex-wrap gap-x-[2%] gap-y-4 justify-center">
                 {clients === null && <Spinner />}
-                {clients && clients.length > 0
-                    && clients.map((client, index) => {
-                        return <ClientCard client={client} key={index} />
-                    })
-                }
-
+                {clients && clients.length > 0 && clients.map((client, index) => (
+                    <ClientCard client={client} key={index} />
+                ))}
                 {clients && clients.length === 0 && <p>You have not added any clients!</p>}
             </div>
         </>
