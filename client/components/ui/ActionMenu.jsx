@@ -13,6 +13,7 @@ const ActionMenu = ({
 }) => {
     const filterOptionElements = clients
         .map(client => client.businessType)
+        .filter((businessType, index, businessTypes) => index === businessTypes.indexOf(businessType))
         .map((businessType, i) => {
             return (
                 <label key={i} className='label'>
