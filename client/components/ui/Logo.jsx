@@ -4,7 +4,7 @@ const Logo = () => {
 
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 50 750 250"
-            className="w-1/2 sm:w-[250px]"
+            className="w-9/12 sm:w-[250px]"
         >
             <defs>
                 <clipPath id="a">

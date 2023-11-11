@@ -10,7 +10,7 @@ export default function Home() {
         <main className = "border-t-4 border-accent pt-8">
             {/* Adding the elements from the homepage layout.  images located in the 'public' folder */}
             <section className="floats block lg:flex flex-row justify-between mt-0">
-                <ul className='p-0 pt-6 w-full lg:w-1/3'>
+                <ul className='p-0 pt-4 w-full lg:w-2/5'>
                     <li>
                         <h3>VIEW</h3>
                         <p>CONTACTED BUSINESSES</p>
@@ -24,14 +24,14 @@ export default function Home() {
                         <p>ONGOING OUTREACH</p>
                     </li>
                 </ul>
-                <div className="flex flex-col-reverse items-center lg:w-3/5 xl:flex-row xl:relative ">
+                <div className="flex flex-col-reverse items-center lg:w-3/5 lg:flex-row lg:relative ">
                     <img
-                        className="border-8 border-accent rounded-3xl h-96 rounded-l-3xl mt-8 xl:relative xl:left-[-5rem] bottom-[-4rem] xl:z-10"
+                        className="border-8 border-accent rounded-3xl h-80 rounded-l-3xl mt-8 lg:relative xl:left-[-3rem] xl:bottom-[-5rem] lg:z-10 lg:bottom-[-2rem]"
                         src="/outreach-one.png"
                         alt='Screenshot of 100freelancers outreach page'
                     />
                     <img 
-                        className="hidden sm:block border-8 border-accent rounded-3xl xl:relative xl:right-[11rem] xl:self-start xl:z-1 xl:w-[40rem]"
+                        className="hidden sm:block border-8 border-accent rounded-3xl lg:relative lg:right-[4rem] lg:self-start lg:z-1 xl:w-[40rem] min-[1000px]:w-[28rem] min-[1170px]:w-[33rem]  xl:right-[8rem] "
                         src="/full-screen.png" 
                         alt="Screenshot of 100freelancers client tiles" 
                     />
