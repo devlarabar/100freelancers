@@ -5,12 +5,14 @@ import Footer from '@components/ui/Footer'
 import AuthProvider from '@contexts/AuthContext'
 import ToggleThemeProvider from '@contexts/ThemeContext/useProvideTheme'
 import ThemeToggle from '@components/ui/ThemeToggle'
+import Favicon from '@/public/favicon.ico'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
     title: '100 Freelancers',
     description: 'Organize and keep track of client outreach',
+    icons: [{ rel: 'icon', url: Favicon.src }],
 }
 
 const RootLayout = ({ children }) => {
