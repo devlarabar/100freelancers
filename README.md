@@ -88,7 +88,7 @@ This app uses [NPM](https://www.npmjs.com/) to manage its dependences and packag
 
     1. Open MongoDB Compass.
     2. In the MongoDB Compass connection dialog, locate the "Connection String" field.
-    3. In your .env file, located in the server directory, copy the DB_STRING into the "Connection String" field
+    3. In your .env file, located in the server directory, copy the DB_STRING, then paste this DB_STRING value into the "Connection String" field in MongoDB Compass.
     4. Click "Connect" to establish a connection to your local MongoDB instance.
 
 5. To run the app locally, navigate to the `client` directory and run:
