@@ -1,5 +1,4 @@
 import { FunnelIcon, ArrowsUpDownIcon, ListBulletIcon, XMarkIcon } from '@heroicons/react/20/solid'
-
 import { sortingTypes } from "@/app/home/page.jsx"
 
 const ActionMenu = ({
@@ -10,6 +9,7 @@ const ActionMenu = ({
     removeFilter,
     currentSort,
     currentFilter,
+    view
 }) => {
     const filterOptionElements = clients
         .map(client => client.businessType.toLowerCase())
@@ -45,7 +45,9 @@ const ActionMenu = ({
                     {filterOptionElements}
                 </ul>
             </div>
-            <ListBulletIcon className="action-icon" title="List View" />
+
+            <ListBulletIcon onClick = {() => view()} className="action-icon" title="List View" />
+            
             {currentSort && (
                 <div className="badge badge-primary self-center flex justify-center items-center leading-none mx-1">
                     {(currentSort === sortingTypes.ascending) && "Sorted AZ"}
