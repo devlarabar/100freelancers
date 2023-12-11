@@ -2,7 +2,7 @@
 import React from "react";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 
-function ClienCardDropdown() {
+function ClientCardDropdown() {
 	return (
 		<div className="dropdown text-secondary">
 			<label tabIndex={0} className="">
@@ -29,4 +29,4 @@ function ClienCardDropdown() {
 	);
 }
 
-export default ClienCardDropdown;
+export default ClientCardDropdown;

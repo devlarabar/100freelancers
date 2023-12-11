@@ -17,9 +17,9 @@ export const sortingTypes = {
 const Home = () => {
     const auth = useAuthContext()
     const [dbClients, setDBClients] = useState(null)
-
     const [currentSort, setCurrentSort] = useState(null)
     const [currentFilter, setCurrentFilter] = useState([])
+    const [view, setView] = useState('card-view')
 
     useEffect(() => {
         fetchClients().then(data => {
@@ -75,12 +75,17 @@ const Home = () => {
         setCurrentFilter([])
     }
 
+    function handleView() {
+        //toggles view from card to list view
+        setView(view === 'card-view' ? 'list-view' : 'card-view');
+    }
+
     if (!auth?.checkAuth) return <Spinner />
     if (auth?.isAuthenticated === "unauthenticated") return redirect('/')
 
     return (
         <>
-            <div className="px-8 pb-4">
+            <div>
                 <ActionMenu
                     clients={dbClients || []}
                     handleSortAZ={handleSortAZ}
@@ -89,13 +94,14 @@ const Home = () => {
                     removeFilter={removeFilter}
                     currentSort={currentSort}
                     currentFilter={currentFilter}
+                    view = {handleView}
                 />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[2%] gap-y-4 justify-center">
+            <div className={view}>
                 {clients === null && <Spinner />}
                 {clients && clients.length > 0 && clients.map((client, index) => (
-                    <ClientCard client={client} key={index} />
+                    <ClientCard view={view} client={client} key={index} />
                 ))}
                 {clients && clients.length === 0 && <p>You have not added any clients!</p>}
             </div>
