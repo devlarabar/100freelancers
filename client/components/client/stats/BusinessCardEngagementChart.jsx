@@ -9,9 +9,9 @@ function BusinessCardEngagementChart({ stats }) {
     labels: ["Total Clients", "  Clients  Contacted "],
     datasets: [
       {
-        data: [60,40],
-        backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
-        borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+        data: [60, 40],
+        backgroundColor: ["#E8DAB2", "#C0D6DF"],
+        borderColor: ["#E8DAB2", "#C0D6DF"],
         borderWidth: 1,
       },
     ],
@@ -23,7 +23,7 @@ function BusinessCardEngagementChart({ stats }) {
       legend: {
         labels: {
           font: {
-            size: 18,
+            size: 15,
           },
           color: "primary",
         },
@@ -31,7 +31,7 @@ function BusinessCardEngagementChart({ stats }) {
     },
   });
   useEffect(() => {
-    const updateChartData = (stats) => 
+    const updateChartData = (stats) =>
       setChartData((prevData) => {
         const updatedData = { ...prevData };
         updatedData.datasets = [...prevData.datasets];
@@ -44,11 +44,12 @@ function BusinessCardEngagementChart({ stats }) {
         };
         return updatedData;
       });
+
     updateChartData(stats);
   }, [stats]);
 
   return (
-    <div className=" h-full ">
+    <div className=" hidden  sm:block h-full w-full sm:p-2">
       <Pie data={chartData} options={chartOptions} />
     </div>
   );
